@@ -1,0 +1,13 @@
+Arrays vs Collections
+Arrays Homogeneous Collections Heterogeneous
+
+Means arrays can store only one type of data. int array will store int data,float will store float data
+Collections  can store only object data
+
+Arrays are fixed in size.cannot be increased during runtime
+Collections are growable in size.increased during runtime
+
+Arrays supports no methods.Operations will become complex
+Collections support methods.Operations will become easy
+
+Collections are little slow in nature.When added,the old collection item get added to new collection

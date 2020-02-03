@@ -1,0 +1,130 @@
+Lambda Expressions
+=================
+1)Introduced in java8
+2)Reduce size of code
+3)Reduce size of bytecode
+
+Functional Interfaces
+=====================
+java7-abstract methods
+java8-abstract methods,default method,static method(optional)
+
+only 1 abstract method should be there
+
+
+case1:valid
+interface itf1{
+void m1()
+}
+
+case2:valid
+interface itf1{
+void m1();
+void static m2();
+}
+
+case3:valid
+interface itf1{
+void m1();
+void static m2();
+default void m3();
+}
+
+case4:invalid
+interface itf1{
+void m1();
+void m2();//only 1 abstract method should be there
+}
+
+syntax: (args)->expression
+case1:
+interface itr{
+	void disp();
+}
+
+class Test {
+
+	public static void main(String[] args) {
+//Using anonymous class
+		itr itr1=new itr() {
+			public void disp() {
+				System.out.println("Good morning");
+			}
+		};
+		itr1.disp();
+		
+		//Using lambda expression
+		itr itr2=()->System.out.println("Good night");
+		itr2.disp();		
+}
+}
+
+case2:
+class Test {
+
+	public static void main(String[] args) {
+//Using anonymous class
+		itr itr1=new itr() {
+			public void disp() {
+				System.out.println("Good morning");
+			}
+		};
+		itr1.disp();
+		
+		//Using lambda expression multiple statement
+		itr itr2=()->{System.out.println("Good night");System.out.println("Good Evening");};
+		itr2.disp();	
+}
+}
+
+case3:Using arguments
+
+interface itr{
+	void add(int a,int b);
+}
+
+class Test {
+
+	public static void main(String[] args) {
+//Using anonymous class
+		itr itr1=new itr() {
+			public void add(int a,int b) {
+				System.out.println(a+b);
+			}
+		};
+		itr1.add(3,5);
+		
+		//Using lambda expression
+		itr itr2=(a,b)->{System.out.println(a+b);};
+		itr2.add(5,6);
+		
+	
+		
+		
+		
+}
+
+case4:return types
+class Test {
+
+	public static void main(String[] args) {
+//Using anonymous class
+		itr itr1=new itr() {
+			public int add(int a,int b) {
+				return(a+b);
+			}
+		};
+		int add = itr1.add(3,5);
+		System.out.println(add);
+		
+		//Using lambda expression
+		itr itr2=(a,b)->{return(a+b);};
+		add = itr2.add(5,6);
+		System.out.println(add);
+		
+	
+		
+		
+		
+}
+}

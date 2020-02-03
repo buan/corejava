@@ -1,0 +1,79 @@
+String has 4 classes
+1)String -final
+2)String Buffer-final
+
+Both are present in java.lang package
+3)String Builder
+4)String Tokenizer Class
+
+
+String s1="A";
+String s2="B";
+String s3="A";
+
+1)Created without using new keyword
+2)Stored in SCP(string constant pool memory)
+3)s1->A
+s2->B
+s1,s2->A(checks whether same content is created in previous object,if yes then references that content)
+Duplicates are not allowed
+
+
+String s1=new String("A");
+String s2=new String("B");
+String s3=new String("C");
+
+1)Created using new keyword
+
+2)Stored in HEap Memory
+3)Doesnt check if same content is created with another variable.so always creates new variable
+4)Duplicates are allowed
+
+
+class Test {
+
+	public static void main(String[] args) {
+
+		String s1 = new String("A");
+		String s2 = new String("B");
+		System.out.println(s1 == s2);
+
+		String s3 = "A";
+		String s4 = "A";
+		System.out.println(s3 == s4);
+
+	}
+
+}
+
+false
+true
+
+Using string buffer also you can create new string.But in String Buffer there is only 1 way ie using new keyword.Takes heap memory
+
+StringBuffer s5 =new StringBuffer("C");
+		StringBuffer s6 =new StringBuffer("D");
+		System.out.println(s5==s6);
+
+false
+
+
+Immutable vs Mutable
+====================
+String  String Buffer
+1)both are final class
+String->immutable
+StringBuffer->immutable
+
+StringBuffer s1=new StringBuffer("A");
+		s1.append("f");
+		System.out.println(s1);
+
+Af printed
+
+String s=new String("A");
+		s.concat("B");
+		System.out.println(s);
+A is printed because s is immutable.Modifications not allowed
+
+s=s.concat("B");AB

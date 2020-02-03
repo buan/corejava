@@ -1,0 +1,304 @@
+Constructors
+
+Object creation methods:-
+1. by using new keyword
+2. by instance factory method
+3. by static factory method
+4. by pattern factory method
+5. by new instance method
+6. by cloning method
+7. by deserialization process
+
+Test t=new Test()
+Test--> class name
+t--> reference variable
+=---> assignment operator
+Test()--->constructor
+
+Rules To declare constructor in java
+1. Constructor name and class name must be same
+2.Cons able to take parameters
+3. Not allowed return types
+
+Types of constructor
+1.Default constructor(0 arg cons //empty implementation)
+2.user defined constructor(0 arg or parameterised cons
+
+Eg.1
+//zero arg cons// default constructor
+class test
+{
+	void m1()
+	{
+		System.out.println("m1");
+	}
+	/*
+	test()//zero arg cons by compiler by default.also called default constructor
+	{
+		empty implementation
+	}
+	*/
+	public static void main(String args[])
+	{
+		test t=new test();// this is syntax for constructor
+		t.m1();
+	}
+}
+
+
+Eg.2
+//user defined constructor
+class test
+{
+	void m1()
+	{
+		System.out.println("m1");
+	}
+	
+	test()
+	{
+		System.out.println("0 arg cons");
+	}
+	
+	test(int a)
+	{
+		System.out.println("1 arg cons");
+	}
+	public static void main(String args[])
+	{
+		test t=new test();
+		test t1=new test(10);
+		t.m1();
+		t1.m1();
+	}
+}
+
+
+Eg.3
+
+class test
+{
+	test(int a)
+	{
+		System.out.println("1 arg cons");
+	}
+	public static void main(String args[])
+	{
+		test t=new test();
+		test t1=new test(10);
+		t.m1();
+		t1.m1();
+	}
+}
+
+
+This program will give compilation error.
+If you dont declare any constructor, the compiler will generate zero argument constructor.But if you declare user defined constructor, the compiler is not responsible to generate any default constructor. In this case,it is not generating any default constructor,as test(int a) is already declared. Hence the line test t=new test(); is producing error
+
+Advantages of constructors
+
+1. They are executed during object creation and the logics inside them is executed.Those logics are used to write the program
+2 Used for initialization purpose>
+Eg.
+class Emp
+{
+	int eid;
+	String emp;
+	float sal;
+	
+	Emp()
+	{
+		eid=111;
+		emp="soumya";
+		sal=100.98f;
+	}
+	void m1()
+	{
+		System.out.println(eid);
+		System.out.println(emp);
+		System.out.println(sal);
+	}
+	
+	public static void main(String args[])
+	{
+		Emp e=new Emp();
+		e.m1();
+	}
+	
+}
+
+In the above prog,the values of Emp class are constant..For each execution, it is going to produce same results which are declared in the zero arg cons.
+We can make them dynamic by following
+
+class Emp
+{
+int eid;
+String emp;
+float sal;
+
+Emp(int eid,String emp,float sal)//conversion of local values to instance values
+{
+this.eid=eid;
+this.emp=emp;
+this.sal=sal;
+}
+
+void disp()
+{
+System.out.println(eid);
+System.out.println(emp);
+System.out.println(sal);
+
+}
+
+public static void main(String args[])
+{
+Emp e=new Emp(10,"sss",12f);
+e.disp();
+}
+
+}
+Output:
+10
+sss
+12.0
+
+
+Constructor calling
+Calling one constructor within another is called constructor calling
+
+class cons1
+{
+	cons1()
+	{   this(10);//calling 1 arg cons
+		System.out.println("0 arg cons");
+	}
+	
+	cons1( int a)
+	{	this(10,20);//calling 1 arg cons
+		System.out.println("1 arg cons");
+	}
+	
+	cons1(int a, int b)
+	{
+		System.out.println("2 arg cons");
+	}
+	
+	public static void main(String args[])
+	{
+		cons1 c1=new cons1();
+		
+	}
+}
+
+output
+2 arg cons
+1 arg cons
+0 arg cons
+
+class cons1
+{
+	cons1()
+	{
+		System.out.println("0 arg cons");
+		this(10);//calling 1 arg cons
+	}
+	
+	cons1( int a)
+	{	
+		System.out.println("1 arg cons");
+		this(10,20);//calling 1 arg cons
+	}
+	
+	cons1(int a, int b)
+	{
+		System.out.println("2 arg cons");
+	}
+	
+	public static void main(String args[])
+	{
+		cons1 c1=new cons1();
+		
+	}
+}
+ OUTPUT
+ cons1.java:6: error: call to this must be first statement in constructor
+                this(10);//calling 1 arg cons
+                    ^
+cons1.java:12: error: call to this must be first statement in constructor
+                this(10,20);//calling 1 arg cons
+                    ^
+2 errors
+
+
+
+class cons1
+{
+	cons1()
+	{   this(10);
+		this(10,20);
+		System.out.println("0 arg cons");
+	}
+	
+	cons1( int a)
+	{	
+		System.out.println("1 arg cons");
+	}
+	
+	cons1(int a, int b)
+	{
+		System.out.println("2 arg cons");
+	}
+	
+	public static void main(String args[])
+	{
+		cons1 c1=new cons1();
+		
+	}
+}
+
+Output
+cons1.java:5: error: call to this must be first statement in constructor
+                this(10,20);
+				
+Conclusion-1 cons can call only 1 cons at a time..but 1 method can multiple methods
+
+
+Object creation approaches
+1. named approach-test t=new test()
+2. nameless approach-new test();
+
+eg-
+class cons1
+{
+	cons1()
+	{   this(10);//calling 1 arg cons
+		System.out.println("0 arg cons");
+	}
+	
+	cons1( int a)
+	{	this(10,20);//calling 1 arg cons
+		System.out.println("1 arg cons");
+	}
+	
+	cons1(int a, int b)
+	{
+		System.out.println("2 arg cons");
+	}
+	
+	public static void main(String args[])
+	{
+		//named approach
+		cons1 c1=new cons1();
+		//nameless approach
+		new cons1();
+	}
+}
+
+Output
+2 arg cons
+1 arg cons
+0 arg cons
+2 arg cons
+1 arg cons
+0 arg cons

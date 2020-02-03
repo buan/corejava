@@ -1,0 +1,33 @@
+class Test {
+
+	public static void main(String[] args) {
+
+		//conversion of arrays to collections
+		
+		String s[]= {"ss","vv","hh"};
+		ArrayList<String> al=new ArrayList<String>(Arrays.asList(s));
+		al.add("dd");
+		al.add("ff");
+		System.out.println(al);
+		
+		//conversion of generic types of collections to arrays
+		ArrayList<String> al1=new ArrayList<String>();
+		al1.add("hello");
+		al1.add("hi");
+		String s1[] = new String[al1.size()];
+		al1.toArray(s1);
+		for (String ss : s1) {
+			System.out.println(ss);
+		}
+		
+		//conversion of normal types of collections to arrays
+		ArrayList al2=new ArrayList();
+		al2.add("SS");
+		al2.add(123);
+		Object o[]=al2.toArray();
+		for (Object oo : o) {
+			System.out.println(oo);
+		}
+				
+		
+	}

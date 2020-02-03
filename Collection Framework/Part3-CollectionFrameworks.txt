@@ -1,0 +1,54 @@
+Collection         Collections
+Root Interface	    Contains lot of methods like sort,ncopies()
+
+2parts
+Collection
+
+List
+Set
+Queue
+
+
+Map
+
+root interface of Map is Map
+root interface of Collections is Collection
+java.util.* package
+parent interface of collection is Iterable
+
+check by javap command
+
+key interfaces of collection
+Collection data
+
+List
+Set
+SortedSet
+Queue
+NavigableSet
+
+Map
+SortedMap
+NavigableMap
+Map.Entry
+
+
+cursors
+Enumeration
+Iterator
+ListIterator
+
+Sorting
+Comparable-java.lang
+Comparator
+
+
+List
+======
+Iterable
+Collection
+List
+
+ArrayList,LinkedList,Vector
+			Stack
+

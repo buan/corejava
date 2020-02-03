@@ -1,0 +1,36 @@
+Emp ---eid,ename
+Student---sid,sname
+
+ArrayList---e s int String null
+
+package Test;
+
+import java.util.ArrayList;
+
+
+class Test {
+
+	public static void main(String[] args) {
+
+		ArrayList al = new ArrayList();
+al.add(new Emp(2,"ff"));
+al.add(new Student(3,"gg"));
+al.add(10);
+al.add(null);
+
+System.out.println(al);
+	}
+
+}
+
+
+[Test.Emp@34a245ab, Test.Student@7cc355be, 10, null]
+returns hashcode of class
+
+arrays are type safe
+	int[]=int data
+float[]=float data
+collections are not type safe
+arraylist contains different types of data
+1)type checking
+2)type casting
