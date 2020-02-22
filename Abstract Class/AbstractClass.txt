@@ -1,0 +1,195 @@
+eg:1 abstract class vs normal class
+===================================
+abstract class Test1{
+	abstract void m1();
+	abstract void m2();
+	abstract void m3();
+	void m4(){
+		System.out.println("in m4");
+	}
+}
+public class Test extends Test1 {
+	void m1(){
+		System.out.println("in m1");
+	}void m2(){
+		System.out.println("in m2");
+	}void m3(){
+		System.out.println("in m3");
+	}
+	
+	public static void main(String args[]){
+//		Test t0= new Test1(); //Cannot instantiate the type Test1
+		Test t= new Test();
+		t.m1();t.m2();t.m3();t.m4();
+		
+		Test1 t1= new Test();//Parent Class variable can hold child class object
+		t1.m1();t1.m2();t1.m3();t1.m4();
+	}
+}
+
+
+
+
+eg-2 Overriding Abstract Methods
+================================
+
+abstract class Test1{
+	abstract void m1();
+	abstract void m2();
+	abstract void m3();
+	void m4(){
+		System.out.println("in m4");
+	}
+}
+abstract class Test extends Test1 {
+	void m1(){
+		System.out.println("in m1");
+	}
+}
+
+abstract class Test2 extends Test {
+	//abstract classes can extend another abstract methods
+	void m2(){
+		System.out.println("in m2");
+	}
+}
+	
+class Test3 extends Test2{
+	void m3(){	
+		System.out.println("in m3");
+	}
+	public static void main(String args[]) {
+		Test3 t3=new Test3();
+		t3.m1();t3.m2();t3.m3();
+	}
+}
+
+eg-2 Overloading abstract class Abstract Methods
+=================================================
+Note:An abstract class can override one method or more than one method or all method of parent abstract class but a normal class has to override all the methods of the parent abstract class
+
+abstract class Test1{
+	abstract int m1();
+	abstract int m1(int m1,int m2);
+	abstract float m1(float f);
+	void m4(){
+		System.out.println("in m4");
+	}
+}
+
+class Test extends Test1{
+	int m1(){
+		return 2;
+	}
+	int m1(int a,int b){
+		return a+b;
+	}
+	float m1(float a){
+		return a;
+	}
+	public static void main(String args[]){
+		Test1 t=new Test();
+		System.out.println(t.m1());
+		System.out.println(t.m1(4,6));
+		System.out.println(t.m1(4.6f));
+	}
+}
+2
+10
+4.6
+
+eg-3 constructor execution
+==========================
+inside abstract method main method is possible
+==============================================
+abstract class Test{
+	public static void main(String args[]){
+		System.out.println(123);
+	}
+}
+123
+
+abstract class Test{
+	Test(){
+		System.out.println("Test cons");
+	}
+}
+
+class Test1 extends Test{
+	Test1(){
+		super();
+		System.out.println("Test1 cons");
+	}
+	public static void main(String[] args) {
+		 new Test1();
+	}
+}
+Test cons
+Test1 cons
+
+
+eg-4-Declaring Instance & Static
+================================
+abstract class{
+variables
+methods
+instance variables
+static block
+instance block
+}
+
+abstract class Test{
+	{
+		System.out.println("instance block");
+	}
+	static{
+		System.out.println("Static block");
+	}
+	Test(){
+		System.out.println("Test cons");
+	}
+}
+
+class Test1 extends Test{
+	public static void main(String[] args) {
+		new Test1();
+	}
+}
+
+
+
+abstract class Rate {
+	abstract int roi();
+}
+
+class Axis extends Rate {
+
+	int roi() {
+
+		return 9;
+	}
+
+}
+
+class SBI extends Rate {
+
+	int roi() {
+
+		return 10;
+	}
+
+}
+
+class Test {
+	public static void main(String[] args) {
+		Axis a = new Axis();
+		System.out.println(a.roi());
+		SBI s = new SBI();
+		System.out.println(s.roi());
+	}
+
+}
+
+9
+10
+Last video left

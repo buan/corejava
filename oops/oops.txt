@@ -1,0 +1,49 @@
+1)A java program can contain n number of classes but at one most class can be declared as public. If a class is declared as public,then the java file should have the name of that class.But if there is no public class,there can be any name given to the file. More than 1 public class in a prog is not allowed
+
+class A {
+	
+}
+class B {
+	
+}
+class C {
+	
+}
+class D {
+	
+}
+
+Test.java--ok
+
+class A {
+	
+}
+public class B {
+	
+}
+class C {
+	
+}
+class D {
+	
+}
+
+Error: Could not find or load main class Test.Test in module First
+
+class A {
+	
+}
+public class Test {
+	
+	
+}
+ public class C {
+	
+}
+class D {
+	
+}
+Not allowed
+
+2) A program can contain n number of main methods. while executing n number of class files will be created. Only those classes can be executed which has main methods.
+

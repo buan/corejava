@@ -1,6 +1,6 @@
 Methods Part 2
 1.if method has return type void it wont return
-2. if method has return type other than void, return type is mandatory.No retrn type is poducing error.
+2. if method has return type other than void, return type is mandatory.No return type is producing error.
 3. Inside the method, the return statement must be last statemkent of the method.
 4.Holding the returning the value is optional, but in project level it is always recommended to hold and check the status of the method.
 

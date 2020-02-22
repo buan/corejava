@@ -84,7 +84,7 @@ class test
 	}
 	public static void main(String args[])
 	{
-		test t=new test();
+		test t=new test();//error
 		test t1=new test(10);
 		t.m1();
 		t1.m1();

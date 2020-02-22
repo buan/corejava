@@ -25,7 +25,7 @@ String s3=new String("C");
 
 1)Created using new keyword
 
-2)Stored in HEap Memory
+2)Stored in Heap Memory
 3)Doesnt check if same content is created with another variable.so always creates new variable
 4)Duplicates are allowed
 
@@ -77,3 +77,41 @@ String s=new String("A");
 A is printed because s is immutable.Modifications not allowed
 
 s=s.concat("B");AB
+
+Equals method
+=============
+equals()->Object class->reference comparison
+String class overrides equals()->content comparison
+StringBuffer class does not overrides equals()-->so reference comparison
+== ref comp
+
+
+class Test{
+	public static void main(String[] args) {
+		String s1="soumya";
+		String s2="soumya";
+		System.out.println(s1.equals(s2));
+		
+		String s3=new String("soumya");
+		String s4=new String("soumya");
+		System.out.println(s3.equals(s4));
+		
+		StringBuffer s5=new StringBuffer("soumya");
+		StringBuffer s6=new StringBuffer("soumya");
+		System.out.println(s5.equals(s6));
+	}
+}
+
+true
+true
+false
+
+toString()
+=========
+By default all the methods run toString method
+class Test{
+	public static void main(String[] args) {
+		Test t=new Test();
+		System.out.println(t);//automatically runs t.toString();
+	}
+}

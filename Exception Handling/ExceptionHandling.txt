@@ -585,7 +585,7 @@ test.java:10: error: Alternatives in a multi-catch statement cannot be related b
 
 
 
-Scanner with resources not done
+try with resources not done
 ==============================
 
 
@@ -942,3 +942,156 @@ class Test {
 }
 
 If a method throws more than 1 exception,then it can happen the calling method may handle only 1 exception and pass on to another method where it will handle the other unhandled exception. No hard and fast rule to handle multiple exceptions in one method
+
+Exception Handling:Method Overriding Rules
+==========================================
+unchecked exceptions can be overriden
+class Test1{
+	void msg(){
+		
+	}
+}
+
+class Test extends Test1{
+	void msg() throws ArithmeticException{
+		
+	}
+}
+
+
+checked exceptions cannot be overriden
+---------------------------------------
+class Test1{
+	void msg(){
+		
+	}
+}
+
+class Test extends Test1{
+	void msg() throws InterruptedException{
+		Thread.sleep(10);
+	}
+}
+
+More to be done
+==============
+
+Throw keyword
+=============
+AE: 1 by zero defined by JVM
+InvalidAgeException defined by user
+
+User Exception:Checked(Runtime) and Unchecked exception(Compiletime)
+for checked exceptions
+class MyException extends Exception{
+}
+
+a.0 arg cons
+b. parameterized cons
+
+for unchecked exceptions
+class MyException extends RuntimeException{
+}
+
+a.0 arg cons
+b. parameterized cons
+
+case1:--
+Steps:
+1)Create the user definded exception
+------------------------------------
+//InvalidAgeException.java
+public class InvalidAgeException extends Exception {
+
+}
+
+2)Use the Exception in our project
+-----------------------------------
+import java.util.Scanner;
+//test.java
+public class test {
+
+	public static void main(String[] args) throws InvalidAgeException {
+		Scanner s= new Scanner(System.in);
+		System.out.println("Enter number");
+		int num= s.nextInt();
+		if(num>20){
+			System.out.println(num);
+			System.out.println("Eligible to vote");
+		}
+		else{
+			throw new InvalidAgeException();
+		}
+	}
+
+
+
+
+case2:--
+Steps:
+1)Create the user definded exception
+------------------------------------
+//InvalidAgeException.java
+public class InvalidAgeException extends Exception {
+	InvalidAgeException(String s){
+		super(s);
+	}
+
+}
+Enter number
+12
+Exception in thread "main" test.InvalidAgeException:
+	at test.test.main(test.java:16)
+
+
+2)Use the Exception in our project
+-----------------------------------
+import java.util.Scanner;
+//test.java
+public class test {
+
+	public static void main(String[] args) throws InvalidAgeException {
+		Scanner s= new Scanner(System.in);
+		System.out.println("Enter number");
+		int num= s.nextInt();
+		if(num>20){
+			System.out.println(num);
+			System.out.println("Eligible to vote");
+		}
+		else{
+			throw new InvalidAgeException("Not eligible");
+		}
+	}
+
+
+Enter number
+12
+Exception in thread "main" test.InvalidAgeException: Not eligible
+	at test.test.main(test.java:16)
+
+ex-3
+====
+import java.util.Scanner;
+
+public class test {
+
+	public static void main(String[] args) throws InvalidAgeException {
+		Scanner s= new Scanner(System.in);
+		System.out.println("Enter number");
+		int num= s.nextInt();
+		if(num>20){
+			System.out.println(num);
+			System.out.println("Eligible to vote");
+		}
+		else{
+			throw new NullPointerException("Not eligible");
+		}
+			
+	}
+Enter number
+1
+Exception in thread "main" java.lang.NullPointerException: Not eligible
+	at test.test.main(test.java:16)
+
+throw:user defined exception //recommended
+throw:pre-defined exception //not recommended
