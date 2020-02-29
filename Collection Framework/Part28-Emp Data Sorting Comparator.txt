@@ -1,0 +1,10 @@
+comparator			vs		comparable
+
+seperation of business				mixing of business logics with sorting
+logics with sorting
+
+multiple property sorting possible		not possible
+
+java.util.*					java.lang.*
+Collections.sort(al)				Collections.sort(al)						
+

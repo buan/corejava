@@ -1,0 +1,27 @@
+class Test {
+
+	
+	public static void main(String[] args) {
+		TreeSet<Integer> t = new TreeSet<Integer>();
+		for (int i = 0; i < 10; i++) {
+			t.add(i);
+		}
+		System.out.println(t);
+
+		SortedSet<Integer> ss1 = t.subSet(2, 5);
+
+		TreeSet<Integer> t1 = new TreeSet<Integer>(ss1);
+		System.out.println(t1);
+
+		SortedSet<Integer> ss2 = t.tailSet(5);
+
+		TreeSet<Integer> t2 = new TreeSet<Integer>(ss2);
+		System.out.println(t2);
+
+	}
+
+}
+
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2, 3, 4]
+[5, 6, 7, 8, 9]

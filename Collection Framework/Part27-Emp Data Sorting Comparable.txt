@@ -1,0 +1,87 @@
+Sort Heterogenous Data
+======================
+1)class should implements Comparable
+2)write functionality in CompareTo method(override).Developer is responsible to sort and return
+3)As we know .sort method internally uses CompareTo method
+Soumya Soumya->0 :no change
+Soumya	AAA->+ve :change req
+AAA Soumya->-ve  :no change
+
+sorting using normal class
+==========================
+class Test {
+
+	public static void main(String[] args) {
+		ArrayList<Emp> al = new ArrayList<Emp>();
+		al.add(new Emp(333,"Soumya"));
+		al.add(new Emp(111,"Suman"));
+		al.add(new Emp(555,"Chiranjit"));
+		al.add(new Emp(444,"Simanta"));
+		al.add(new Emp(222,"Bishan"));
+		al.add(new Emp(666,"Somnath"));
+		
+		System.out.println("Before sorting");
+		
+		for (Emp emp : al) {
+			System.out.println(emp.eid+" "+emp.ename);
+		}
+		Collections.sort(al);
+		System.out.println("After sorting");
+		
+		for (Emp emp : al) {
+			System.out.println(emp.eid+" "+emp.ename);
+		}
+
+	}
+}
+
+
+
+public class Emp implements Comparable{
+	int eid;
+	String ename;
+
+	public Emp(int eid, String ename) {
+		super();
+		this.eid = eid;
+		this.ename = ename;
+	}
+
+	@Override
+	public int compareTo(Object o) {
+		// TODO Auto-generated method stub
+		Emp e= (Emp)o;
+		if(e.eid == eid)
+			return 0;
+		else if(e.eid < eid)
+			return 1;
+		else
+			return -1;
+	}
+
+
+soring using generic Class
+==========================
+
+
+public class Emp implements Comparable<Emp> {
+	int eid;
+	String ename;
+
+	public Emp(int eid, String ename) {
+		super();
+		this.eid = eid;
+		this.ename = ename;
+	}
+
+	@Override
+	public int compareTo(Emp e) {
+		// TODO Auto-generated method stub
+		return ename.compareTo(e.ename);
+	}
+
+}
+
+
+Limitations:mixing business logics with sorting
+one property of sorting is possible

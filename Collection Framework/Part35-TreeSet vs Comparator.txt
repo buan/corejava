@@ -1,0 +1,96 @@
+//homogenous data
+
+package com.cts;
+
+import java.util.*;
+
+class Test {
+
+	public static void main(String[] args) {
+		TreeSet<String> ts = new TreeSet<String>(new Mycomp());
+		ts.add("SS");
+		ts.add("FF");
+		ts.add("DD");
+		ts.add("KK");
+
+		System.out.println(ts);
+		
+		TreeSet<Integer> ts1=new TreeSet<Integer>(new Mycomp1());
+				ts1.add(20);
+				ts1.add(10);
+				ts1.add(30);
+				ts1.add(2);
+				System.out.println(ts1);
+
+	}
+}
+
+
+class Mycomp implements Comparator<String>{
+
+	@Override
+	public int compare(String o1, String o2) {
+		// TODO Auto-generated method stub
+		return -o1.compareTo(o2);//descending use -ve
+	}
+	
+	
+}
+
+class Mycomp1 implements Comparator<Integer>{
+
+	@Override
+	public int compare(Integer o1, Integer o2) {
+		// TODO Auto-generated method stub
+		return o1.compareTo(o2);
+	}
+	
+}
+
+
+//Hetereogenous data
+
+
+class Test {
+
+	public static void main(String[] args) {
+		TreeSet<Emp> ts = new TreeSet<Emp>(new Mycomp());
+		ts.add(new Emp(222,"Soumya"));
+		ts.add(new Emp(111,"Bishan"));
+		ts.add(new Emp(444,"Somnath"));
+
+		for (Emp emp : ts) {
+			System.out.println(emp.eid+" "+emp.ename);
+		}
+		
+	
+}
+
+}
+class Mycomp implements Comparator<Emp>{
+
+	@Override
+	public int compare(Emp e1, Emp e2) {
+		// TODO Auto-generated method stub
+		return -e1.ename.compareTo(e2.ename);
+	}	
+	
+}
+
+
+Emp.java
+==========
+
+
+public class Emp {
+	int eid;
+	String ename;
+
+	public Emp(int eid, String ename) {
+		super();
+		this.eid = eid;
+		this.ename = ename;
+	}
+
+	
+}

@@ -1,0 +1,6 @@
+TreeSet<String> ts=new TreeSet<String>();
+		ts.add("SS");
+		ts.add("ff");
+		ts.add(null);//null cant be added
+		
+		System.out.println(ts);
