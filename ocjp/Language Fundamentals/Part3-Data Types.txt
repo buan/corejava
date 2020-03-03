@@ -85,3 +85,56 @@ Single Precision	Double Precision
 size:4 bytes		size:8 bytes
 
 range:-1.7e38->1.7e38	range:-3.4e38->3.4e38
+
+
+Boolean
+=======
+size-NA[VM dependant]
+range-NA[allowed values are true and false]
+default value=false
+boolean b=true[v]
+boolean b=0[iv,found int required boolean]
+boolean b=True[iv,ce, cannot find symbol:variable True,location:test]
+
+True is treated as variable
+
+boolean b="True"[iv,ce ic found java.lang,string req:boolean]
+
+Eg-
+====
+public class Test {
+	
+	public static void main(String[] args) {
+		int x=0;
+		if(x)
+			System.out.println("Hi");
+		else
+			System.out.println("Hello");
+	}
+
+}
+CE,ic,found int required boolean
+
+
+public class Test {
+	
+	public static void main(String[] args) {
+		while(1) {
+			System.out.println(1);
+		}
+
+}
+
+same error
+ works in C and other languages but java is strongly typed language
+
+
+char
+=====
+Old languages are ASCII code based and the number of different allowed ASCII characters <=256.To represent these 256 characters,8 bits are enough,hence the size of char in old languages is 1 byte. But Java is UNICODE based and the number of different unicode characters>256 and <=65536. To represent these many characters 8 bits may not be enough. Compulsory we should go for 16 bits,hence the size of char in java is 2 bytes
+
+size:2 bytes
+range:0-65536
+default value=0[space]
+
+Null not applicable for primitive data type. Applicable for object
