@@ -1,0 +1,93 @@
+char ch='a'(v)
+char ch=a(iv) a does not fall in any datatype. so java considers it a variable. but there is no variable
+char c="A"(iv) it found string req char
+char c='ab' unclosed char literal.unclosed char literal.not a java statement
+
+We can specify char literal as intergral literal which represents unicode value of the character and that integral literal can be specified either in decimal or octal or hexadecimal forms but allowed range is 0-65535
+
+char c=97 sop(c)->a
+
+char ch=OXFace(v) 
+char ch=0777(V)
+char ch=OXFace(v)
+char ch=65535(v)
+char ch=65536(iv)PLP found int req char
+
+We can represent char literal in unicode representation which is nothing but '\uXXXX'->xxxx is hexadecimal num
+
+eg
+char c='\u00061'
+SOP(c)=>a
+
+Every escape character is a valid char literal
+
+
+char c='\n'
+char c='\t'
+char c='\m'->illegal
+
+8 escape char
+\n->newline
+\t->horizontal tab
+\r->carriage return
+\b->back space
+\'->single quote
+\"->double quote
+\\->single backslash
+
+SOP(
+
+which are valid
+
+char c=65536->iv
+char c=oXbeer->iv->r is not hexad
+char c=\uface->iv->quotes missing
+char c='\ubeef'->v
+char c='\m'->iv->no escape char
+char c='\iface'->iv
+
+String literal
+==============
+Any sequence of characters in double quotes
+
+String s="sss";
+
+1.7 enhnacements with respect to literals.Allowed digits are 0 and 1.Literal value should be prefixed with 0B/0b
+
+a)Binary Literals-int x=0B1111;SOP(x)->15
+
+
+Usage of underscore symbols in numeric literals
+===============================================
+From 1.7 version onwards, we can use _ symbol between digits of numeric literal.
+
+eg-
+double d=123134.456
+	||
+	\/
+double d=1_23_134.4_5_6
+
+Main advantage of this approach is readability of code will be improved.
+At the time of compilation,these _ symbols will be removed automatically,hence after compilation the above lines will become
+double d=123134.456
+
+We can use more than 1 _ symbols between the digits
+double d=1___23__13_4.45__6;
+
+We can use_ symbol only between the digits.If we are using anywhere else, we will get CT error
+
+eg-
+double d=_1_23.45_0(iv)
+double d=1_23_.45_0(iv)
+double d=1_23.45_0_(iv)
+
+byte->short->int->long->float->double
+1	2     
+char->int
+
+long->float?how?
+8 byte long value we can assign to 4 byte float variable because both are following different memory representation internally
+but char cannot be assigned to short
+float f=10L;
+SOP(f);10.0
+
