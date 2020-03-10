@@ -1,0 +1,23 @@
+Topics
+------
+Introduction
+Array Declaration
+Array Creation
+Array Initialization
+Array declaration,creation and initialization in a single line
+Length vs length()
+Anonymous arrays
+Array Element assignments
+Array variable assignment
+
+Array->indexed collection of,fixed number of homogeneous data elements.Main advantage of arrays is we can represent huge number of values by using single variable so that 
+readability of the code will be improved. But the main disadvantage of arrays is fixed in size ie once we create an array there is no chance of increasing or decreasing based on our requirement.Hence to use arrays concept,we should always know size in advance,which may not be possible always
+
+Array Declaration
+=================
+int x[];
+int []x;
+int[] x;->recommended.because name is clearly seperated from type.
+
+int[6] x;(iv)->at the time of declaration,we cant specify size,otherwise error
+int[] x;(v)

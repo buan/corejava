@@ -82,7 +82,7 @@ double d=1_23_.45_0(iv)
 double d=1_23.45_0_(iv)
 
 byte->short->int->long->float->double
-1	2     
+1	2     4     8	  4	8	
 char->int
 
 long->float?how?
