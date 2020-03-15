@@ -1,0 +1,27 @@
+class Test {
+
+	public static void main(String[] args) {
+		LinkedHashSet<Emp> lhs = new LinkedHashSet<Emp>();
+		lhs.add(new Emp(111, "Soumya"));
+		lhs.add(new Emp(222, "Bishan"));
+		lhs.add(new Emp(333, "Somnath"));
+
+		Iterator<Emp> itr = lhs.iterator();
+		while (itr.hasNext()) {
+			Emp e = itr.next();
+			if (e.eid == 111) {
+				itr.remove();
+			}
+		}
+		for (Emp emp : lhs) {
+			System.out.println(emp.eid + " " + emp.ename);
+		}
+
+	}
+}
+
+
+222 Bishan
+333 Somnath
+
+//Insertion order is preserved

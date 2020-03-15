@@ -1,0 +1,39 @@
+ArrayList	vs	Vector
+1.0			1.2
+Non-sync		sync
+
+
+public java.util.Vector();//10
+
+public java.util.Vector(int);
+Vector<String>v=new Vector<String>();
+System.out.println(v.capacity());
+
+Vector<String>v=new Vector<String>(3);
+v.add("10");
+v.add("20");
+v.add("30");
+v.add("40");
+System.out.println(v.capacity());
+6
+  public java.util.Vector(int, int);
+Vector<String>v=new Vector<String>(3,7);
+v.add("10");
+v.add("20");
+v.add("30");
+v.add("40");
+System.out.println(v.capacity());
+10
+  
+  public java.util.Vector(java.util.Collection<? extends E>);
+
+ArrayList<String> al = new ArrayList<String>();
+		al.add("200");
+		Vector<String> v = new Vector<String>(al);
+		v.add("10");
+		v.add("20");
+		v.add("30");
+		v.add("40");
+		System.out.println(v);
+
+[200, 10, 20, 30, 40]

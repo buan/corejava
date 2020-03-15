@@ -1,0 +1,20 @@
+Collection framework works with group of objects into single entity
+Can be used to manipulate group of objects
+Contains methods and interfaces to work with objects
+Package-->java.util
+
+Collections divided into 2->Collections and Map
+
+Under Collections-
+1)List
+2)Set
+3)Queue
+
+
+Topics to be covered
+====================
+Collection Data
+Map Data
+Cursors
+Sorting
+Stream API

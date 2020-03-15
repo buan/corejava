@@ -1,0 +1,140 @@
+Data types
+===========
+In Java every variable should have some datatype.Every assignment should be checked by compiler for type compatibility.Because of this,Java language is strongly typed language
+
+Java is not considered as pure oopl because oops features are not satisfied by java like operator overloading,multiple inheritance etc.Moreover we are depending on primitive data type which are not objects
+
+Primitive Data Types
+====================
+1)Numeric data types 2) Non numeric data types
+
+Numeric->Integral DT, Float point DT
+
+Integral->byte,short,int,long
+Float point->float,double
+
+Non numeric-> char,boolean
+
+Except boolean and char all datatypes are called signed datatypes. Can be converted to -v1 and +ve
+
+byte
+====
+size-1 byte(8 bits)
+lsb=sign bit so remaining bits are 7. (+ve=1,-ve=0)
+max_value=2 power 7=128-1=+127
+min_value=-128
+
+which are valid
+===============
+byte b=10(v)
+byte b=127(v)
+byte b=128(iv)-ic
+byte b=10.5(iv)-ic
+byte b=true(iv)-ic
+byte b="A"(iv)-ic
+
+If you want to handle data in terms of streams either from file or from network,byte datatype can be used.
+
+short
+======
+size-2 bytes(16 bits)
+lsb=sign bit so remaining bits are 15. (+ve=1,-ve=0)
+max_value=2 power 15=32768-1=+32767
+min_value=-32767
+
+
+This is most rarely used in Java.This is suitable for 16bit processor.
+
+short s=32767(v)
+short s=32767(iv)->incompatible types.possible loss of precision(found int required short)
+short s=10.5 iv
+short s=true iv
+
+int
+===
+Most common used datatype in java
+
+size-4 bytes(32 bits)
+lsb=sign bit so remaining bits are 31. (+ve=1,-ve=0)
+max_value=2 power 31-1
+min_value=-2 power 31
+
+Long
+=====
+Sometimes int is not sufficient to hold values. In that case,we use long.
+For eg-speed of light,distance travelled by a planet,length of a file
+
+The num of characters present in a big file may exceed int. Hence we need long data type
+
+size-8 bytes(64 bits)
+lsb=sign bit so remaining bits are 63. (+ve=1,-ve=0)
+max_value=2 power 64-1
+min_value=-2 power 63
+
+All the above datatypes represent integral values. If we want to represent, floating point values, we will use float and double
+
+
+Float vs double
+===============
+Float			Double
+Represent 5-6 		Represent 10-14		
+decimal places		after decimal
+		
+Single Precision	Double Precision
+
+size:4 bytes		size:8 bytes
+
+range:-1.7e38->1.7e38	range:-3.4e38->3.4e38
+
+
+Boolean
+=======
+size-NA[VM dependant]
+range-NA[allowed values are true and false]
+default value=false
+boolean b=true[v]
+boolean b=0[iv,found int required boolean]
+boolean b=True[iv,ce, cannot find symbol:variable True,location:test]
+
+True is treated as variable
+
+boolean b="True"[iv,ce ic found java.lang,string req:boolean]
+
+Eg-
+====
+public class Test {
+	
+	public static void main(String[] args) {
+		int x=0;
+		if(x)
+			System.out.println("Hi");
+		else
+			System.out.println("Hello");
+	}
+
+}
+CE,ic,found int required boolean
+
+
+public class Test {
+	
+	public static void main(String[] args) {
+		while(1) {
+			System.out.println(1);
+		}
+
+}
+
+same error
+ works in C and other languages but java is strongly typed language
+
+
+char
+=====
+Old languages are ASCII code based and the number of different allowed ASCII characters <=256.To represent these 256 characters,8 bits are enough,hence the size of char in old languages is 1 byte. But Java is UNICODE based and the number of different unicode characters>256 and <=65536. To represent these many characters 8 bits may not be enough. Compulsory we should go for 16 bits,hence the size of char in java is 2 bytes
+
+size:2 bytes
+range:0-65536
+default value=0[space]
+
+Null not applicable for primitive data type. Applicable for object

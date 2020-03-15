@@ -1,0 +1,108 @@
+class{
+variables
+	local variables
+	instance variables
+	static variables
+methods
+constructors
+instance blocks
+static blocks
+
+}
+
+local variables-
+1. those variables which are declared inside methods or constructors or blocks
+2. scope of the variables
+void m1()
+{
+int a=2;//local variables
+System.out.println(a);//possible
+}
+void m2()
+{
+System.out.println(a);//not possible
+}
+
+3.
+void m1()//memory allocated when method starts
+{
+int a=10;
+int b=20;
+}//memory released when method ends
+
+4.stored memory-local variables are stored in stack memory
+
+
+Types of areas of java
+instance areas and static areas
+
+instance variables->instance methods(direct access)
+instance variables->static or other areas methods(access through object)
+
+void m1//instance method
+{
+//body
+}
+
+static area
+
+static void m1//static method
+{
+//body
+}
+
+
+
+
+
+
+Instance variables-
+1.declaration: declared inside the class and outside the method
+2. scope of the variables -inside the class all methods,constructors and inside the blocks
+3. memory allocated when object is created---> object destroyed when meory destroyed
+4. stored in heap memory
+
+
+
+
+
+
+
+Static variables-
+java test---> jvm loads .class files tp memory
+	      jvm searches for main method
+	      
+1.variables which are declared within the class but outside the methods with a static modifier
+2. scope of the variable is within the class
+3. memory allocated when .class files are load---->memory destroyed when .class files are unloaded
+4. stored in non heap memory
+
+
+static methods are called by class name whether it is in any area(instance area or static area)
+
+
+static variables can be accessed by 3 methods
+1. directly
+2. using object	
+3 by using classname---> this is important
+
+
+class and object concept
+
+1. class is logical entity and object is physical entity
+2. one class multiple objects and each objects occupies memory
+3.class is blue print and without class no object
+4. class defined using class keyword and objectdeclared using new keyword
+
+
+main difference between static and instance variables-
+For instance variables, for each object seperate memory is allocated. But for static variables only one copy of variable is allocated per class
+
+
+
+eg.
+class emp
+{
+String eid;// different employee will have different eid
+String ename;// different employee will have different ename
+String comp;// different employee will have same ecomp, so we can make this as static variable

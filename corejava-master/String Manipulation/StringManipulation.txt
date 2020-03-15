@@ -1,0 +1,239 @@
+String has 4 classes
+1)String -final
+2)String Buffer-final
+
+Both are present in java.lang package
+3)String Builder
+4)String Tokenizer Class
+
+
+String s1="A";
+String s2="B";
+String s3="A";
+
+1)Created without using new keyword
+2)Stored in SCP(string constant pool memory)
+3)s1->A
+s2->B
+s1,s2->A(checks whether same content is created in previous object,if yes then references that content)
+Duplicates are not allowed
+
+
+String s1=new String("A");
+String s2=new String("B");
+String s3=new String("C");
+
+1)Created using new keyword
+
+2)Stored in Heap Memory
+3)Doesnt check if same content is created with another variable.so always creates new variable
+4)Duplicates are allowed
+
+
+class Test {
+
+	public static void main(String[] args) {
+
+		String s1 = new String("A");
+		String s2 = new String("B");
+		System.out.println(s1 == s2);
+
+		String s3 = "A";
+		String s4 = "A";
+		System.out.println(s3 == s4);
+
+	}
+
+}
+
+false
+true
+
+Using string buffer also you can create new string.But in String Buffer there is only 1 way ie using new keyword.Takes heap memory
+
+StringBuffer s5 =new StringBuffer("C");
+		StringBuffer s6 =new StringBuffer("D");
+		System.out.println(s5==s6);
+
+false
+
+
+Immutable vs Mutable
+====================
+String  String Buffer
+1)both are final class
+String->immutable
+StringBuffer->immutable
+
+StringBuffer s1=new StringBuffer("A");
+		s1.append("f");
+		System.out.println(s1);
+
+Af printed
+
+String s=new String("A");
+		s.concat("B");
+		System.out.println(s);
+A is printed because s is immutable.Modifications not allowed
+
+s=s.concat("B");AB
+
+Equals method
+=============
+equals()->Object class->reference comparison
+String class overrides equals()->content comparison
+StringBuffer class does not overrides equals()-->so reference comparison
+== ref comp
+
+
+class Test{
+	public static void main(String[] args) {
+		String s1="soumya";
+		String s2="soumya";
+		System.out.println(s1.equals(s2));
+		
+		String s3=new String("soumya");
+		String s4=new String("soumya");
+		System.out.println(s3.equals(s4));
+		
+		StringBuffer s5=new StringBuffer("soumya");
+		StringBuffer s6=new StringBuffer("soumya");
+		System.out.println(s5.equals(s6));
+	}
+}
+
+true
+true
+false
+
+toString()
+=========
+By default all the methods run toString method
+class Test{
+	public static void main(String[] args) {
+		Test t=new Test();
+		System.out.println(t);//automatically runs t.toString();
+	}
+}
+
+
+Conversion Process
+==================
+String to StringBuffer and vice-versa
+=====================================
+
+class Test {
+	public static void main(String[] args) {
+		// String to StringBuffer
+		String s = "soumya";
+		StringBuffer sb = new StringBuffer(s);
+		System.out.println(sb);
+
+		// StringBuffer to String
+		StringBuffer sb1 = new StringBuffer("soumya");
+		String s1 = sb.toString();
+		System.out.println(s1);
+	}
+}
+
+equals( ) vs compareto( ) 
+==========================
+compareto()
+soumya soumya1
+97	100-->+ve
+
+soumya soumya1
+100	97-->-ve
+
+soumya soumya
+100	100-->==
+
+
+equals()==>boolean
+compareTo()==>int
+
+class Test {
+	public static void main(String[] args) {
+		// equals returns boolean
+		System.out.println("soumya".equals("somenath"));
+		System.out.println("somenath".equals("soumya"));
+		System.out.println("somenath".equals("somenath"));
+		System.out.println("somenath".equals("SOMENATH"));
+		System.out.println("somenath".equalsIgnoreCase("SOMENATH"));
+
+		// compareTo returns int
+		System.out.println("somenath".compareTo("soumya"));
+		System.out.println("soumya".compareTo("somenath"));
+		System.out.println("soumya".compareTo("soumya"));
+		System.out.println("soumya".compareTo("SOUMYA"));
+		System.out.println("soumya".compareToIgnoreCase("SOUMYA"));
+	}
+}
+
+
+false
+false
+true
+false
+true
+-8
+8
+0
+32
+0
+
+String Class Methods
+====================
+1)charAt() 2)indexOf() 3)split() 4) length() 5)substring()
+6)trim() 7)contains() 8)startsWith() 9)endswith()
+
+length vs length()
+method chaining--str.trim.length()
+
+class Test {
+	public static void main(String[] args) {
+		System.out.println("soumya".charAt(1));
+		System.out.println("soumya".indexOf('y'));
+		String s[]="soumya banerjee".split(" ");
+		for (String ss : s) {
+			System.out.println(ss);
+		}
+		System.out.println("soumya".length());
+		System.out.println("soumya".startsWith("so"));
+		System.out.println("soumya".endsWith("ya"));
+		
+		System.out.println("hi how are you".contains("how"));
+		System.out.println("  soumya   ".length());
+		//method chaining
+		System.out.println("  soumya   ".trim().length());
+		
+		//length vs length()
+		String ss[]= {"f","g"};
+		System.out.println(ss.length);
+		System.out.println("soumya".length());
+	}
+}
+
+o
+4
+soumya
+banerjee
+6
+true
+true
+true
+11
+6
+2
+6
+
+String Buffer Methods
+=====================
+reverse(),delete(),insert(),replace(),append(),deleteAt()
+
+StringBuffer vs String Builder(1.5)
+==============================
+synchronized	non-synchronized
+1-thread	multiple thread
+thread safe	not thread safe
+perf decr	perf incr

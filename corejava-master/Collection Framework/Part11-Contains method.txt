@@ -1,0 +1,6 @@
+Collection	Collections
+add	vs	addAll
+contains	vs containsAll
+remove 	vs 	removeAll
+
+removeAll()	vs	retainsAll()

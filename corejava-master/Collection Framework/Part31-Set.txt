@@ -1,0 +1,14 @@
+Set
+====
+Main difference between List and Set.Set duplicates not allowed
+Set->1)HashedSet(insertion order not preserved)---->LinkedHashSet(preserved)
+2)SortedSet------>NavigableSet,TreeSet
+
+1.2
+Heterogenous
+null
+duplicates not allowed
+insertion not
+non-sync
+hashtable
+iterator

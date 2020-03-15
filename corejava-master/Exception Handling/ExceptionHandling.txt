@@ -1,0 +1,1097 @@
+Exception means 
+1)abnormal termination
+2)Rest of the code not executed
+
+Exception handling can be done in 2 ways
+1)try catch block
+2)throws
+
+If handled then
+1)normal termination
+2)Rest of code is executed
+
+2 types of exception
+1)Checked:
+2)Unchecked:Not checked at compile time.Child class of runtime exceptions
+3)Error
+
+Examples of unchecked Exception
+class test{
+public static void main(String args[]) {
+	System.out.println("Hello1");
+	System.out.println(10/0);//AE
+	System.out.println("Hello2");
+}
+}
+
+D:\Soumya\java>javac test.java//Compiles very well,so unchecked exception
+
+D:\Soumya\java>java test
+Hello1
+Exception in thread "main" java.lang.ArithmeticException: / by zero
+        at test.main(test.java:4)
+
+class test{
+public static void main(String args[]) {
+	System.out.println("Hello1");
+	int a[] = {1,44,5,6};
+	System.out.println(a[12]);//AIOOBE
+	System.out.println("Hello2");
+}
+}
+
+
+D:\Soumya\java>javac test.java
+
+D:\Soumya\java>java test
+Hello1
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 12
+        at test.main(test.java:5)
+
+
+
+class test{
+public static void main(String args[]) {
+	System.out.println("Hello1");
+//	System.out.println(10/0);
+//	int a[] = {1,44,5,6};
+//	System.out.println(a[12]);//AIOOBE
+	System.out.println(Integer.parseInt("ten"));
+	System.out.println("Hello2");
+}
+}
+
+Exception in thread "main" java.lang.NumberFormatException: For input string: "ten"
+        at java.lang.NumberFormatException.forInputString(Unknown Source)
+        at java.lang.Integer.parseInt(Unknown Source)
+        at java.lang.Integer.parseInt(Unknown Source)
+        at test.main(test.java:7)
+
+Interrupted Exception:Exceptions caught at compile time
+=====================
+class test{
+public static void main(String args[]) {
+	System.out.println("Hello1");
+Thread.sleep(1000);
+	System.out.println("Hello2");
+}
+}
+
+D:\Soumya\java>javac test.java
+test.java:4: error: unreported exception InterruptedException; must be caught or declared to be thrown
+Thread.sleep(1000);
+            ^
+1 error
+
+
+import java.io.FileInputStream;
+
+class test{
+public static void main(String args[]) {
+	System.out.println("Hello1");
+//Thread.sleep(1000);
+	FileInputStream fs = new FileInputStream("ss.txt");
+	System.out.println("Hello2");
+}
+}
+
+Checked and unchecked both exceptions are raised at compile time.Checked exceptions are safe exceptions.raised at runtime
+
+
+
+Throwable------>Exception
+--------------->Errors
+
+
+Exceptions--->RUNTIME EXCEPTION,SQL EXCEPTION,AWTEXCEPTION,SERVLETEXCEPTION,IOEXCEPTION
+
+Runtime Exception:AE,NPE,NFE,IA,AIOOB
+IO Exception:FileNotFound,Interrupted Exception
+
+Errors:OutOFMemory,AwtError,VirtualMachineError
+Not possible to handle errors
+
+
+keywords
+1. try
+2. catch
+3. finally
+4. throws
+5. throw
+
+
+handle exception using try catch block
+
+try{
+exceptional code:may or may not
+}
+catch(Exception-name ref-var){
+code executed when exception is raised
+}
+
+
+Eg1:
+without try catch
+class test{
+public static void main(String args[]) {
+	System.out.println("Hello1");
+	System.out.println(10/0);//AE
+	System.out.println("Hello2");
+}
+}
+
+with try catch
+
+
+class test{
+	public static void main(String args[]) {
+		System.out.println("Start");
+		try {
+			
+			System.out.println(10/0);
+			
+		}
+		catch(Exception e) {
+			System.out.println(10/2);
+		}
+		System.out.println("End");
+	}
+}
+
+D:\Soumya\java>javac test.java
+
+D:\Soumya\java>java test
+Start
+5
+End
+
+
+ex 2:catch block not matched :program terminated abnormally
+class test{
+	public static void main(String args[]) {
+		System.out.println("Start");
+		try {
+			
+			System.out.println(10/0);
+			
+		}
+		catch(NullPointerException e) {
+			System.out.println(10/2);
+		}
+		System.out.println("End");
+	}
+}
+
+D:\Soumya\java>javac test.java
+
+D:\Soumya\java>java test
+Start
+Exception in thread "main" java.lang.ArithmeticException: / by zero
+        at test.main(test.java:8)
+
+ex3:no exception in try block,then catch block is not checked
+
+class test{
+	public static void main(String args[]) {
+		
+		try {
+			
+			System.out.println("Start");
+			
+		}
+		catch(ArithmeticException e) {
+			System.out.println(10/2);
+		}
+		System.out.println("End");
+	}
+}
+
+D:\Soumya\java>javac test.java
+
+D:\Soumya\java>java test
+Start
+End
+
+ex4:only try blocks are not allowed
+class test{
+	public static void main(String args[]) {
+		
+		try {
+			
+			System.out.println("Start");
+			
+		}
+		
+		System.out.println("End");
+	}
+}
+
+
+D:\Soumya\java>javac test.java
+test.java:4: error: 'try' without 'catch', 'finally' or resource declarations
+                try {
+                ^
+1 error
+
+ex5:statement declarations between try and catch are invalid
+
+class test{
+	public static void main(String args[]) {
+		
+		try {
+			
+			System.out.println("Start");
+			
+		}
+		System.out.println(1);
+		catch(ArithmeticException e) {
+			System.out.println(10/2);
+		}
+		System.out.println("End");
+	}
+}
+
+
+D:\Soumya\java>javac test.java
+test.java:4: error: 'try' without 'catch', 'finally' or resource declarations
+                try {
+                ^
+test.java:10: error: 'catch' without 'try'
+                catch(ArithmeticException e) {
+                ^
+2 errors
+
+ex6:if exception raised in catch block,then it is abnormal termination
+
+class test{
+	public static void main(String args[]) {
+		
+		try {
+			System.out.println(10/0);
+		}
+		catch(ArithmeticException e) {
+			System.out.println(10/0);
+		}
+		System.out.println("End");
+	}
+}
+
+
+D:\Soumya\java>javac test.java
+
+D:\Soumya\java>java test
+Exception in thread "main" java.lang.ArithmeticException: / by zero
+        at test.main(test.java:8)
+
+ex7:once exception raised in try the remain loc in try is not executed
+class test{
+	public static void main(String args[]) {
+		
+		try {
+			System.out.println(10/0);
+			System.out.println("next");
+		}
+		catch(ArithmeticException e) {
+			System.out.println(10/2);
+		}
+		System.out.println("End");
+	}
+}
+
+D:\Soumya\java>javac test.java
+
+D:\Soumya\java>java test
+5
+End
+
+
+Category:
+Try with multiple catch block
+import java.util.Scanner;
+case1:
+class test{
+	public static void main(String args[]) {
+		
+		try {
+			Scanner s= new Scanner(System.in);
+			int num = s.nextInt();
+			System.out.println(10/num);
+			System.out.println("Enter number");
+			System.out.println("soumya".charAt(12));
+		}
+		catch(ArithmeticException e) {
+			System.out.println("in catch");
+		}
+		catch(StringIndexOutOfBoundsException s) {
+			System.out.println("in catch2");
+		}
+		System.out.println("End");
+	}
+}
+
+D:\Soumya\java>javac test.java
+
+D:\Soumya\java>java test
+0
+in catch
+End
+
+D:\Soumya\java>java test
+2
+5
+Enter number
+in catch2
+End
+
+case2:
+Exception catch block can handle any type of exception
+import java.util.Scanner;
+
+class test{
+	public static void main(String args[]) {
+		
+		try {
+			Scanner s= new Scanner(System.in);
+			int num = s.nextInt();
+			System.out.println(10/num);
+			System.out.println("Enter number");
+			System.out.println("soumya".charAt(12));
+		}
+		catch(Exception e) {
+			System.out.println("in catch");
+		}
+		
+		System.out.println("End");
+	}
+}
+D:\Soumya\java>javac test.java
+
+D:\Soumya\java>java test
+2
+5
+Enter number
+in catch
+End
+
+case3:Order of catch block should be from child to parent
+
+import java.util.Scanner;
+
+class test{
+	public static void main(String args[]) {
+		
+		try {
+			Scanner s= new Scanner(System.in);
+			int num = s.nextInt();
+			System.out.println(10/num);
+			System.out.println("Enter number");
+			System.out.println("soumya".charAt(12));
+		}
+//
+		catch(ArithmeticException e) {
+			System.out.println("in catch");
+		}
+		catch(Exception e) {
+			System.out.println("in catch2");
+		}
+		
+		System.out.println("End");
+	}
+}
+
+D:\Soumya\java>java test
+0
+in catch
+End
+
+
+case4:If order of catch is from parent to child
+import java.util.Scanner;
+
+class test{
+	public static void main(String args[]) {
+		
+		try {
+			Scanner s= new Scanner(System.in);
+			int num = s.nextInt();
+			System.out.println(10/num);
+			System.out.println("Enter number");
+			System.out.println("soumya".charAt(12));
+		}
+		catch(Exception e) {
+			System.out.println("in catch");
+		}
+		catch(ArithmeticException e) {
+			System.out.println("in catch2");
+		}
+		
+		System.out.println("End");
+	}
+}
+
+D:\Soumya\java>javac test.java
+test.java:16: error: exception ArithmeticException has already been caught
+                catch(ArithmeticException e) {
+                ^
+1 error
+
+
+Category-2:Printing exception message
+class test{
+	void m1() {
+		m2();
+	}
+	void m2() {
+		try {
+			System.out.println(10/0);
+		}
+		catch(ArithmeticException ae){
+			
+			System.out.println(ae.getMessage());/ by zero
+			System.out.println(ae.toString());/java.lang.ArithmeticException: / by zero
+			ae.printStackTrace();/java.lang.ArithmeticException: / by zero
+        at test.m2(test.java:7)
+        at test.main(test.java:19)
+		}
+		
+	}
+	public static void main(String args[]) {
+		test t=new test();
+		t.m2();
+		System.out.println("End");
+	}
+}
+D:\Soumya\java>javac test.java
+
+D:\Soumya\java>java test
+/ by zero
+java.lang.ArithmeticException: / by zero
+java.lang.ArithmeticException: / by zero
+        at test.m2(test.java:7)
+        at test.main(test.java:19)
+End
+
+case 3:JVM internally uses printstack method to show us the error. No need of example
+
+case 4:Exception Propagation
+
+
+Pipe Symbol (Handling Multiple Exception)
+case1:unchecked exception. for unchecked exception, we can apply similar behaviours for mutliple exceptions.
+import java.util.Scanner;
+
+class test{
+		
+	public static void main(String[] args) {
+		try {
+			System.out.println("Enter num");
+			Scanner s= new Scanner(System.in);
+			int num = s.nextInt();
+			System.out.println(10/num);
+			System.out.println("soumya".charAt(12));
+		}
+		catch(ArithmeticException |NumberFormatException nfe) {
+			System.out.println("in catch1");
+		}
+		catch(StringIndexOutOfBoundsException|NullPointerException npe) {
+			System.out.println("in catch2");
+		}
+	}
+}
+
+case 2:checked exceptions:an exception has to be present in the try block to match proper checked exception
+
+import java.io.*;
+
+class test{
+		
+	public static void main(String[] args) {
+		try {
+			Thread.sleep(10);
+		}
+		catch(InterruptedException | FileNotFoundException e) {
+			System.out.println("in catch1");
+		}
+	}
+}
+
+
+D:\Soumya\java>javac test.java
+test.java:9: error: exception FileNotFoundException is never thrown in body of corresponding try statement
+                catch(InterruptedException | FileNotFoundException e) {
+                ^
+1 error
+
+
+case 3:checked Exception:both the exceptions are raised ,so ok
+import java.io.*;
+
+class test{
+		
+	public static void main(String[] args) {
+		try {
+			Thread.sleep(1);
+			FileInputStream fis =new FileInputStream("a.txt");
+		}
+		catch(InterruptedException | FileNotFoundException e) {
+			System.out.println("in catch1");
+		}
+	}
+}
+
+case4: we can mix and match checked and unchecked exceptions
+import java.io.*;
+
+class test{
+		
+	public static void main(String[] args) {
+		try {
+			
+			FileInputStream fis =new FileInputStream("a.txt");
+		}
+		catch(FileNotFoundException | ArithmeticException e) {
+			System.out.println("in catch1");
+		}
+	}
+}
+
+D:\Soumya\java>javac test.java
+
+D:\Soumya\java>java test
+in catch1
+
+case5:parent and subclass exceptions cannot be declared
+import java.io.*;
+
+class test{
+		
+	public static void main(String[] args) {
+		try {
+			
+			FileInputStream fis =new FileInputStream("a.txt");
+		}
+		catch(IOException | FileNotFoundException e) {
+			System.out.println("in catch1");
+		}
+	}
+}
+
+D:\Soumya\java>javac test.java
+test.java:10: error: Alternatives in a multi-catch statement cannot be related by subclassing
+                catch(IOException | FileNotFoundException e) {
+                                    ^
+  Alternative FileNotFoundException is a subclass of alternative IOException
+1 error
+
+
+
+try with resources not done
+==============================
+
+
+finally block
+=============
+Finally block executed regardless of try catch
+
+
+case1:No Exceptions raised:finally executed
+import java.io.*;
+
+class test{
+		
+	public static void main(String[] args) {
+		try {
+			System.out.println("in try");
+			
+		}
+		catch(ArithmeticException ae) {
+			System.out.println("in catch");
+		}
+		finally{
+			System.out.println("In Finally");
+		}
+	}
+}
+
+
+case2: exceptions raised:catch+finally executed:normal termination
+import java.io.*;
+
+class test{
+		
+	public static void main(String[] args) {
+		try {
+			System.out.println(10/0);
+			
+		}
+		catch(ArithmeticException ae) {
+			System.out.println("in catch");
+		}
+		finally{
+			System.out.println("In Finally");
+		}
+	}
+}
+
+
+D:\Soumya\java>javac test.java
+
+D:\Soumya\java>java test
+in catch
+In Finally
+
+case3:catch block not matched:abnormal termination:finally block executed
+
+class test{
+		
+	public static void main(String[] args) {
+		try {
+			System.out.println(10/0);
+			
+		}
+		catch(NullPointerException ae) {
+			System.out.println("in catch");
+		}
+		finally{
+			System.out.println("In Finally");
+		}
+	}
+}
+
+
+D:\Soumya\java>javac test.java
+
+D:\Soumya\java>java test
+In Finally
+Exception in thread "main" java.lang.ArithmeticException: / by zero
+        at test.main(test.java:7)
+
+case4:exception raised in catch:ABT and finally executed
+
+class test{
+		
+	public static void main(String[] args) {
+		try {
+			System.out.println(10/0);
+			
+		}
+		catch(ArithmeticException ae) {
+			System.out.println(10/0);
+		}
+		finally{
+			System.out.println("In Finally");
+		}
+	}
+}
+
+
+D:\Soumya\java>javac test.java
+
+D:\Soumya\java>java test
+In Finally
+Exception in thread "main" java.lang.ArithmeticException: / by zero
+        at test.main(test.java:9)
+
+case5:exception raised in finally:ABT 
+
+class test{
+		
+	public static void main(String[] args) {
+		try {
+			System.out.println(10/0);
+			
+		}
+		catch(ArithmeticException ae) {
+			System.out.println("catch");
+		}
+		finally{
+			System.out.println(10/0);
+		}
+	}
+}
+
+
+case6:try without catch but with finally
+class test{
+		
+	public static void main(String[] args) {
+		try {
+			System.out.println("try");
+		}
+		
+		finally{
+			System.out.println("finally");
+		}
+	}
+}
+
+Valid syntax
+try-catch
+try-finally
+
+2 cases where finally not executed
+1)when control is not in try catch
+class test{
+		
+	public static void main(String[] args) {
+System.out.println(10/0);
+		try {
+			System.out.println("try");
+		}
+		
+		finally{
+			System.out.println("finally");
+		}
+	}
+}
+
+D:\Soumya\java>javac test.java
+
+D:\Soumya\java>java test
+Exception in thread "main" java.lang.ArithmeticException: / by zero
+        at test.main(test.java:4)
+
+2)when you enter System.exit(0)
+class test{
+		
+	public static void main(String[] args) {
+
+		try {
+			System.out.println("try");
+			System.exit(0);
+		}
+		
+		finally{
+			System.out.println("finally");
+		}
+	}
+}
+
+D:\Soumya\java>javac test.java
+
+D:\Soumya\java>java test
+try
+
+
+2 cases interview question
+case1: when try,catch,finally all contains exceptions
+class test{
+		
+	public static void main(String[] args) {
+
+		try {
+			System.out.println(10/0);
+		}
+		catch(ArithmeticException ae){
+			System.out.println("sss".charAt(33));
+		}
+		
+		finally{
+			int a[] = {2,4,11,23};
+			System.out.println(a[33]);
+		}
+	}
+}
+
+D:\Soumya\java>javac test.java
+
+D:\Soumya\java>java test
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 33
+        at test.main(test.java:14)
+
+only recent exception executed.here it is finally
+
+case2:when try catch finally returns value
+
+class test{
+
+	int m1() {
+		try {
+			return 10;
+		}
+		catch(ArithmeticException ae){
+			return 20;
+		}
+		
+		finally{
+			return 30;
+		}
+	}
+	public static void main(String[] args) {
+
+		test t=new test();
+		System.out.println(t.m1());
+}
+		
+}
+
+D:\Soumya\java>javac test.java
+
+D:\Soumya\java>java test
+30
+
+only recent value is returned
+
+
+nested try catch not done
+==========================
+
+Throws keyword
+==============
+2 ways to handle exception
+1)try catch
+2)throws keyword.--When a method is not able to handle exception,it delegates the responsibility to its calling methods.This is done using throws keyword
+
+
+class Test {
+	void sdetails() throws InterruptedException{
+		System.out.println("Sleeping");
+		Thread.sleep(100);
+		System.out.println("Sleeping");
+	}
+
+	void hod() {
+		sdetails();
+	}
+
+	void principal() {
+		hod();
+	}
+
+	void officeboy() {
+		principal();
+	}
+
+	public static void main(String[] args) {
+		Test t = new Test();
+		t.officeboy();
+
+	}
+
+}
+
+Here responsibility for handling is given to hod.If hod throws,then it relegates to principal and so on.The calling method can either handle exception by try catch or it can delegate it to its calling method
+ex-2
+class Test {
+	void sdetails() throws InterruptedException{
+		System.out.println("Sleeping");
+		Thread.sleep(100);
+		System.out.println("Sleeping");
+	}
+
+	void hod()throws InterruptedException {
+		sdetails();
+	}
+
+	void principal()throws InterruptedException {
+		hod();
+	}
+
+	void officeboy()throws InterruptedException {
+		principal();
+	}
+
+	public static void main(String[] args)throws InterruptedException {
+		Test t = new Test();
+		t.officeboy();
+
+	}
+
+}
+
+Here all methods throws exception.this is then handled by JVM
+
+case3:
+class Test {
+	void sdetails() throws InterruptedException,FileNotFoundException{
+		System.out.println("Sleeping1");
+		Thread.sleep(100);
+		FileInputStream fs=new FileInputStream("dd.txt");
+		System.out.println("Sleeping2");
+	}
+
+	void hod() throws InterruptedException {
+		try {
+			sdetails();
+		}
+		catch(FileNotFoundException fnf) {
+			fnf.getStackTrace();
+		}
+		
+	}
+
+	void principal() {
+		try {
+			hod();
+		}
+		catch(InterruptedException ie){
+			ie.getStackTrace();
+		}
+	}
+
+	void officeboy() {
+		principal();
+	}
+
+	public static void main(String[] args) {
+		Test t = new Test();
+		t.officeboy();
+
+	}
+
+}
+
+If a method throws more than 1 exception,then it can happen the calling method may handle only 1 exception and pass on to another method where it will handle the other unhandled exception. No hard and fast rule to handle multiple exceptions in one method
+
+Exception Handling:Method Overriding Rules
+==========================================
+unchecked exceptions can be overriden
+class Test1{
+	void msg(){
+		
+	}
+}
+
+class Test extends Test1{
+	void msg() throws ArithmeticException{
+		
+	}
+}
+
+
+checked exceptions cannot be overriden
+---------------------------------------
+class Test1{
+	void msg(){
+		
+	}
+}
+
+class Test extends Test1{
+	void msg() throws InterruptedException{
+		Thread.sleep(10);
+	}
+}
+
+More to be done
+==============
+
+Throw keyword
+=============
+AE: 1 by zero defined by JVM
+InvalidAgeException defined by user
+
+User Exception:Checked(Runtime) and Unchecked exception(Compiletime)
+for checked exceptions
+class MyException extends Exception{
+}
+
+a.0 arg cons
+b. parameterized cons
+
+for unchecked exceptions
+class MyException extends RuntimeException{
+}
+
+a.0 arg cons
+b. parameterized cons
+
+case1:--
+Steps:
+1)Create the user definded exception
+------------------------------------
+//InvalidAgeException.java
+public class InvalidAgeException extends Exception {
+
+}
+
+2)Use the Exception in our project
+-----------------------------------
+import java.util.Scanner;
+//test.java
+public class test {
+
+	public static void main(String[] args) throws InvalidAgeException {
+		Scanner s= new Scanner(System.in);
+		System.out.println("Enter number");
+		int num= s.nextInt();
+		if(num>20){
+			System.out.println(num);
+			System.out.println("Eligible to vote");
+		}
+		else{
+			throw new InvalidAgeException();
+		}
+	}
+
+
+
+
+case2:--
+Steps:
+1)Create the user definded exception
+------------------------------------
+//InvalidAgeException.java
+public class InvalidAgeException extends Exception {
+	InvalidAgeException(String s){
+		super(s);
+	}
+
+}
+Enter number
+12
+Exception in thread "main" test.InvalidAgeException:
+	at test.test.main(test.java:16)
+
+
+2)Use the Exception in our project
+-----------------------------------
+import java.util.Scanner;
+//test.java
+public class test {
+
+	public static void main(String[] args) throws InvalidAgeException {
+		Scanner s= new Scanner(System.in);
+		System.out.println("Enter number");
+		int num= s.nextInt();
+		if(num>20){
+			System.out.println(num);
+			System.out.println("Eligible to vote");
+		}
+		else{
+			throw new InvalidAgeException("Not eligible");
+		}
+	}
+
+
+Enter number
+12
+Exception in thread "main" test.InvalidAgeException: Not eligible
+	at test.test.main(test.java:16)
+
+ex-3
+====
+import java.util.Scanner;
+
+public class test {
+
+	public static void main(String[] args) throws InvalidAgeException {
+		Scanner s= new Scanner(System.in);
+		System.out.println("Enter number");
+		int num= s.nextInt();
+		if(num>20){
+			System.out.println(num);
+			System.out.println("Eligible to vote");
+		}
+		else{
+			throw new NullPointerException("Not eligible");
+		}
+			
+	}
+Enter number
+1
+Exception in thread "main" java.lang.NullPointerException: Not eligible
+	at test.test.main(test.java:16)
+
+throw:user defined exception //recommended
+throw:pre-defined exception //not recommended

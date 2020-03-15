@@ -1,0 +1,31 @@
+Characteristics
+1)version
+2)Homo or heterogeneous
+
+except TreeSet,TreeMap
+3)null insertion:allowed in all classes
+4)duplicate object:allowed or not
+
+List allow duplicate
+Set doesnt allow duplicate
+5)sync or not sync
+6)insertion order preservation
+q1 q2 q3----q1 q2 q3(preserved)
+q1 q2 q3-----q3 q2 q1(not preserved)
+7)Resizable Array,
+8)cursors
+
+
+
+
+Based on these characteristics we will learn different collections
+
+ArrayList
+========
+1)version-1.2
+2)Heterogeneous
+3)Null insertion allowed
+4)duplicates
+5)insertion order preserved
+6)non sync
+7)Resizable

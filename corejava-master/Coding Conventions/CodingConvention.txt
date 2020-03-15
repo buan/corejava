@@ -1,0 +1,15 @@
+Class name and interfaces  starts with caps and also every inner word starts with caps
+called Camel case convention.takes nouns
+
+eg-String,StringBuffer
+
+Method name starts with lower case and innerword capital letter called mixed case methods
+
+eg-charAt(),toUpperCase().takes verbs
+
+Packages must be lower case
+
+Constructors all in caps MAX_PRIORITY
+
+Every name is java is called identifier. it may be class, method,variable name
+

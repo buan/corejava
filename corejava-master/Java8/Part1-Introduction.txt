@@ -1,0 +1,75 @@
+Java 8 new features
+===================
+concise code
+Enable Functional Programming
+
+Eg-
+Normal function
+
+public static int squareit(int x) {
+		return (x*x);
+	}
+
+public static void main(String[] args) {	
+		System.out.println(SptelusloApplication.squareit(4));
+	}
+
+Functional Interface
+-----------------------
+Function<Integer, Integer> f1=i->i*i;
+System.out.println(f1.apply(4));
+
+
+Topics
+======
+1)Lambda Expressions
+2)Functional Interface
+3)Default Methods and static methods
+4)Predefined Functional Interface
+Predicate
+Function
+Consumer
+Supplier
+etc
+5)Double colon operator(::)
+Method Reference
+Constructor Reference
+
+6)Streams
+7)Date and Time
+8)Optional Class
+9)Nashorn Javascript Engine
+
+Lambda Expressions
+------------------
+a)It is an anonymous function(nameless)
+b)Without return type
+c)Without modifiers
+
+eg-1
+public void m1(){
+System.out.println("hi");
+}
+
+()-> System.out.println("hi");
+
+
+eg-2
+public void m1(int a,int b){
+System.out.println(a+b);
+}
+
+(a,b)->System.out.println(a+b);//compiler can guess the types.no need to mention int
+
+eg-3
+public int squareIt(int n){
+return n*n;
+}
+
+(n) -> n*n
+
+
+
+
+
+

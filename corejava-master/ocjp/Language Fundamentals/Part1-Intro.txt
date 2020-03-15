@@ -1,0 +1,12 @@
+Topics of Discussion
+====================
+Identifiers
+Reserved Keywords
+Data types
+Literals
+Arrays
+Types Of Variables
+var args methods
+main method
+command line args
+java coding standards

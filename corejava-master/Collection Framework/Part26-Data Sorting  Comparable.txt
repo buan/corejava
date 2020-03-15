@@ -1,0 +1,33 @@
+Sorting
+=======
+2 conditions
+1)Data must be homogeneous
+2)Implements comparable
+
+String class and all wrapperclass implement comparable
+
+sort()
+internally uses CompareTo() returns integer
+
+10,Null cannot be sorted null pointer exception	
+
+eg
+class Test {
+
+	public static void main(String[] args) {
+
+		ArrayList<String> al=new ArrayList<String>();
+		al.add("soumya");
+		al.add("chiranjit");
+		al.add("suman");
+		al.add("simanta");
+		System.out.println("Before sorting"+al);
+		Collections.sort(al);
+		System.out.println("After sorting"+al);
+		
+		
+}
+}
+
+Before sorting[soumya, chiranjit, suman, simanta]
+After sorting[chiranjit, simanta, soumya, suman]

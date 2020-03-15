@@ -1,0 +1,37 @@
+Iterators
+
+1)1.2(Not legacy class)
+2)Universal Cursor,All classes
+3)iterator()
+4)hasNext(),next(),remove()
+5)only forward
+6)Read,remove
+7)Generic,normal
+
+class Test {
+
+	public static void main(String[] args) {
+ArrayList<String> al=new ArrayList<String>();
+al.add("SS");
+al.add("ff");
+al.add("vv");
+
+//normal classes
+
+Iterator itr=al.iterator();
+while(itr.hasNext()) {
+	String s=(String)itr.next();//typecast
+	System.out.println(s);
+}
+
+//generic
+Iterator<String> itr1=al.iterator();
+while(itr1.hasNext()) {
+	
+	System.out.println(itr1.next());
+}
+			
+
+	}
+
+}

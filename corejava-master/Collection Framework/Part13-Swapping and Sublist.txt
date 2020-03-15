@@ -1,0 +1,34 @@
+
+package Test;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+
+class Test {
+
+	public static void main(String[] args) {
+
+		// conversion of arrays to collections
+
+		ArrayList<String> al = new ArrayList<String>();
+		al.add("dd");
+		al.add("ff");
+		al.add("ff1");
+		al.add("ff2");
+		al.add("ff3");
+		System.out.println("Before Swapping" + al);
+		Collections.swap(al, 1, 2);
+		System.out.println("After swap" + al);
+		
+		System.out.println(al.subList(1, 2));
+
+	}
+
+}
+
+
+Before Swapping[dd, ff, ff1, ff2, ff3]
+After swap[dd, ff1, ff, ff2, ff3]
+[ff1]

@@ -1,0 +1,77 @@
+Ways to read data
+1)forEach
+2)get
+3)cursors-Enumeration,Iterator,ListIterator
+
+ListIterator
+============
+1)1.2
+2)Supports only ListClasses
+3)Not universal
+4)Bidirectional
+5)9 methods
+6)Normal and Generic
+7)iterator(),hasNext(),hasPrevious(),next(),previous()
+
+javap java.util.ListIterator
+Compiled from "ListIterator.java"
+public interface java.util.ListIterator<E> extends java.util.Iterator<E> {
+  public abstract boolean hasNext();
+  public abstract E next();
+  public abstract boolean hasPrevious();
+  public abstract E previous();
+  public abstract int nextIndex();
+  public abstract int previousIndex();
+  public abstract void remove();
+  public abstract void set(E);
+  public abstract void add(E);
+}
+
+
+
+
+class Test {
+
+	public static void main(String[] args) {
+ArrayList<String> al=new ArrayList<String>();
+al.add("SS");
+al.add("ff");
+al.add("vv");
+
+//normal cursor:Forward+backward
+
+ListIterator ltr1=al.listIterator();
+while(ltr1.hasNext()) {
+	String ss=(String)ltr1.next();
+	System.out.println(ss);
+}
+while(ltr1.hasPrevious()) {
+	String ss=(String)ltr1.previous();
+	System.out.println(ss);
+}
+
+
+//generic cursor:Forward+backward
+
+
+ListIterator<String> ltr2=al.listIterator();
+while(ltr2.hasNext()) {
+	System.out.println(ltr2.next());
+}
+while(ltr2.hasPrevious()) {
+	System.out.println(ltr2.previous());
+}
+
+
+SS
+ff
+vv
+vv
+ff
+SS
+SS
+ff
+vv
+vv
+ff
+SS

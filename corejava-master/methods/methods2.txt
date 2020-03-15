@@ -1,0 +1,173 @@
+Methods Part 2
+1.if method has return type void it wont return
+2. if method has return type other than void, return type is mandatory.No return type is producing error.
+3. Inside the method, the return statement must be last statemkent of the method.
+4.Holding the returning the value is optional, but in project level it is always recommended to hold and check the status of the method.
+
+eg1. Different return types
+
+class example7
+{
+		int m1()
+		{
+			System.out.println("m1 method");
+			return 10;
+		}
+		
+		float m2()
+		{
+			System.out.println("m2 method");
+			return 10.9f;
+		}
+		
+		static char m3()
+		{
+			System.out.println("m3 method");
+			return 'a';
+		}
+		
+		
+		public static void main(String args[])
+		{
+			example7 e1=new example7();
+			int a=e1.m1();
+			System.out.println("Return value of m1 is "+a);
+			float f=e1.m2();
+			System.out.println("Return value of m2 is "+f);
+			char c=example7.m3();
+			System.out.println("Return value of m3 is "+c);
+		}
+}
+
+
+eg-2  class return type
+
+class Emp{}
+class X{}
+class example8
+{
+	Emp m1()
+	{
+		System.out.println("m1 method");
+		Emp e=new Emp();
+		return e;
+	}
+	
+	X m2()
+	{
+		System.out.println("m2 method");
+		X x=new X();
+		return x;
+	}
+	
+	static String m3()
+	{
+		System.out.println("m3 method");
+		return "hello";
+	}
+	
+	public static void main(String args[])
+	{
+		example8 e=new example8();
+		Emp e1=e.m1();
+		System.out.println(e1);
+		X x1=e.m2();
+		System.out.println(x1);
+		String str=example8.m3();
+		System.out.println(str);
+	}
+}
+
+eg-3 different ways to return class using this and new()
+
+class example9
+{
+	example9 m1()
+	{
+		System.out.println("m1");
+		example9 e=new example9();
+		return e;
+	}
+	
+	
+	example9 m2()
+	{
+		System.out.println("m2");
+		return this;
+	}
+	
+	example9 m3()
+	{
+		System.out.println("m3");
+		return new example9();
+	}
+	
+	public static void main(String args[])
+	{
+		example9 e=new example9();
+		example9 e1=e.m1();
+		example9 e2=e.m2();
+		example9 e3=e.m3();
+		
+	}
+}
+output
+m1
+m2
+m3
+
+local v instance variable return possibilities
+eg-1
+class example10
+{	
+	int a=10;
+	int m1(int a)
+	{
+		return a;
+	}
+	
+	public static void main(String args[])
+	{
+		example10 e=new example10();
+		System.out.println(e.m1(5));
+	}
+}
+
+output=5
+as local has priority
+
+eg-2
+class example10
+{	
+	int a=10;
+	int m1(int a)
+	{
+		return this.a;
+	}
+	
+	public static void main(String args[])
+	{
+		example10 e=new example10();
+		System.out.println(e.m1(5));
+	}
+}
+10 as returning this means it will return class object
+
+
+eg-3
+class example11
+{	
+	int a=10;
+	int m1()
+	{
+		return a;
+	}
+	
+	public static void main(String args[])
+	{
+		example11 e=new example10();
+		System.out.println(e.m1());
+	}
+}
+
+10 as there is only one variable with int a;

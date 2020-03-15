@@ -1,0 +1,25 @@
+class Test {
+
+	public static void main(String[] args) {
+
+		LinkedList<Book> li=new LinkedList<Book>();
+		
+		li.add(new Book(111,"C","DD"));
+		li.add(new Book(222,"Java","JJ"));
+		li.add(new Book(333,"Php","PP"));
+		
+		ListIterator<Book> ltr=li.listIterator();
+		ltr.add(new Book(444,"angular","AA"));
+		while(ltr.hasNext()) {
+			Book b= ltr.next();
+			if(b.bname=="Java")
+				ltr.remove();
+		}
+		
+		for (Book book : li) {
+			System.out.println(book.bname+" "+book.bid+" "+book.bauthor);
+		}
+		
+		
+}
+}

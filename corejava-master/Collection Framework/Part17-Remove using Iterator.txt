@@ -1,0 +1,52 @@
+1)Add 4 elements in array list.if data="soumya",remove it
+2)Create book class with bid,bname,bauthor. If bid=111,remove it
+
+1)
+class Test {
+
+	public static void main(String[] args) {
+ArrayList<String> al=new ArrayList<String>();
+al.add("SS");
+al.add("ff");
+al.add("vv");
+
+Iterator<String>itr1=al.iterator();
+while(itr1.hasNext()) {
+	String b=itr1.next();
+	if(b.equals("ff")) {
+		itr1.remove();
+	}
+}
+
+for (String str : al) {
+	System.out.println(str);
+}
+
+2)
+
+class Test {
+
+	public static void main(String[] args) {
+ArrayList<Book> al=new ArrayList<Book>();
+al.add(new Book(111,"SS","ss"));
+al.add(new Book(222,"DD","dd"));
+al.add(new Book(333,"GG","gg"));
+
+Iterator <Book> itr=al.iterator();
+while(itr.hasNext())
+{
+	Book b=itr.next();
+	if(b.bid==111) {
+		itr.remove();
+	}
+	
+}
+for (Book book : al) {
+	System.out.println(book.bid+" "+book.bname+" "+book.bauthor);
+}
+
+
+
+	}
+
+}

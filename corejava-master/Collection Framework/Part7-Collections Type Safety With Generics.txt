@@ -1,0 +1,35 @@
+collections are not type safe
+arraylist contains different types of data.problems while reading data
+1)type checking
+2)type casting
+
+to provide type safety use generics
+ArrayList<Integer> al=new ArrayList<Integer>
+means only integer values can be entered.other types cannot be used
+
+al.add("a")-->invalid
+
+
+class Test {
+
+	public static void main(String[] args) {
+
+		ArrayList<Emp> al = new ArrayList<Emp>();
+		al.add(new Emp(122, "Soumya"));
+		al.add(new Emp(123, "Soumya1"));
+
+		for (Emp emp : al) {
+			System.out.println(emp.empid);
+			System.out.println(emp.empname);
+		}
+	}
+
+}
+
+Here only employee type object can be added.Others are not allowed
+
+Collections:heterogenous:not recommended because everytime we need to do type casting and typechecking
+Collections:generics:recommended
+
+but arrays are homo,why collections?
+because collections are flexible in terms of memory and operations

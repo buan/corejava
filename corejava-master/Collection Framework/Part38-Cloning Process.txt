@@ -1,0 +1,32 @@
+List
+Set
+Comparator
+Cursor
+
+Every collection class implementing cloneable and serializable interface
+Cloning
+=======
+Process of creating exactly duplicate objects
+
+by default cloneing is not supported by your class.Your class must implements cloneable interface.Cloneable is a marked interface(no methods but class getting some capabilities)
+
+
+Clone copies the object from heap
+eg-
+public class test implements Cloneable {
+
+	int a = 3;
+	int b = 5;
+
+	public static void main(String[] args) throws CloneNotSupportedException {
+		test t = new test();
+		System.out.println(t.a);
+		System.out.println(t.b);
+		
+		test t2=(test)t.clone();
+		System.out.println(t2.a);
+		System.out.println(t2.b);
+
+	}
+
+}

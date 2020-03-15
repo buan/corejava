@@ -1,0 +1,28 @@
+Add 4 names. Add 5th name using List Iterator(cursor). If name="SS",remove.If name="DD" replace with dd
+
+//If data is added using cursor,then it is added at the beginning
+
+ArrayList<String> al=new ArrayList<String>();
+al.add("FF");
+al.add("GG");
+al.add("DD");
+al.add("SS");
+
+ListIterator<String> lit=al.listIterator();
+lit.add("I am first");
+
+while(lit.hasNext()) {
+	String b=lit.next();
+			if(b.equals("SS"))
+				lit.remove();
+	if(b.equals("DD"))
+		lit.set("dd");
+}
+
+for (String str : al) {
+	System.out.println(str);
+}
+	}
+
+}
+

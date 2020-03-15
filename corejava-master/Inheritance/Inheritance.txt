@@ -1,0 +1,390 @@
+appllication without inheritance
+---------------------------------
+class A
+{
+void m1()
+void m2()
+}
+class B
+{
+void m1(){}
+void m2(){}
+void m3(){}
+void m4(){}
+}
+class C
+{
+void m1(){}
+void m2(){}
+void m3(){}
+void m4(){}
+void m5(){}
+void m6(){}
+}
+
+application with inheritance
+---------------------------------
+class A//super base parent
+{
+void m1(){}
+void m2(){}
+}
+class B extends A //contains 4 methods// sub child derived class
+{
+void m3(){}
+void m4(){}
+}
+class C extends B //contains 6 methods
+{
+void m5(){}
+void m6(){}
+}
+
+
+Inheritance is the property of one acquiring properties of one class to another class
+Note1: If you are extending another class, your class will become parent class. If you dont extend then you are extending object class
+
+extends keyword maintains relationship between one class with another
+
+Root class of all java classes is OBJECT class
+
+Every class in java is directly or indirectly child class of OBJECT(java.lang package)
+
+Types of inheritance
+1. Single Inheritance: a--->b class A extends B
+2. Multilevel Inheritance: a--->b--->c  class A extends B,class B extends C
+3. Hierarichal Inheritance:a->b,a->c, a->d class B extends A,class C extends A, class D extends A
+4. Multiple Inheritance not supported..a1-->b ,a2--->b..which property will B acquire?
+ambiguity lies if same methods are there
+
+Examples
+
+class A
+{
+	void m1()
+	{
+		System.out.println("m1 method");
+	}
+	
+	void m2()
+	{
+		System.out.println("m2 method");
+	}
+}
+
+class B extends A
+{
+	void m3()
+	{
+		System.out.println("m3 method");
+	}
+	
+	void m4()
+	{
+		System.out.println("m4 method");
+	}
+}
+
+class C extends B
+{
+	void m5()
+	{
+		System.out.println("m5 method");
+	}
+	
+	void m6()
+	{
+		System.out.println("m6 method");
+	}
+	
+	public static void main(String args[])
+	{
+		A a=new A();
+		a.m1();a.m2();
+		
+		B b=new B();
+		b.m1();b.m2();b.m3();b.m4();
+		
+		C c=new C();
+		c.m1();c.m2();c.m3();c.m4();c.m5();c.m6();	
+	}
+}
+
+Preventing inheritance in java:Declare any class as final
+example
+--------------------------------------------------------
+final class b1
+{
+	void m1()
+	{
+		System.out.println("hi");
+	}
+}
+
+class c1 extends b1
+{
+	void m2()
+	{
+		System.out.println("hi");
+	}
+	
+	public static void main(String args[])
+	{
+		c1 c=new c1();
+		c.m1();
+		c.m2();
+	}
+}
+
+
+c1.java:9: error: cannot inherit from final b1
+class c1 extends b1
+
+
+Super class concept vs this keyword
+
+Normal Eg.
+-------------------
+class Parent
+{
+	int a=10,b=20;
+}
+
+class Child extends Parent
+{
+	int x=100,y=200;
+	void printsum(int i,int j)
+	{
+		System.out.println(a+b);
+		System.out.println(x+y);
+		System.out.println(i+j);
+	}
+	
+	public static void main(String args[])
+	{
+		new Child().printsum(200,300);
+	}
+	
+}
+
+30
+300
+500
+
+Super v This
+--------------
+class Parent
+{
+	int a=10,b=20;
+}
+
+class Child extends Parent
+{
+	int a=100,b=200;
+	void printsum(int a,int b)
+	{
+		System.out.println(a+b);//print local variables
+		System.out.println(this.a+this.b);//current class variables
+		System.out.println(super.a+super.b);//parent class variables
+	}
+	
+	public static void main(String args[])
+	{
+		new Child().printsum(200,300);
+	}
+	
+}
+
+500
+300
+30
+
+Super class constructor
+-----------------------
+class Parent
+{
+	Parent()
+	{
+		System.out.println("In Parent 0 arg cons");
+	}
+}
+
+class Child extends Parent
+{
+	Child()
+	{	this(10);
+		System.out.println("In Child 0 arg cons");
+	}
+	
+	Child(int a)
+	{	super();
+		System.out.println("In Child 1 arg cons");
+	}
+	public static void main(String args[])
+	{
+		new Child();
+	}
+	
+}
+
+In Parent 0 arg cons
+In Child 1 arg cons
+In Child 0 arg cons
+
+Note:Super keyword must be first statement of a method
+
+	Child(int a)
+	{	System.out.println("In Child 1 arg cons");
+		super();
+	}
+	Error
+	
+class Parent
+{
+	Parent()
+	{
+		System.out.println("In Parent 0 arg cons");
+	}
+}
+EG
+----------------------------
+class Child extends Parent
+{
+	Child()
+	{	this(10);
+		super();
+		System.out.println("In Child 0 arg cons");
+	}
+	
+	Child(int a)
+	{	
+		System.out.println("In Child 1 arg cons");
+	}
+	public static void main(String args[])
+	{
+		new Child();
+	}
+	
+}	
+
+this and super cant be written together as this and super must be first statement
+
+class Parent
+{
+	
+}
+
+class Child extends Parent
+{
+	Child()
+	{	
+		super();
+		System.out.println("In Child 0 arg cons");
+	}
+	
+	Child(int a)
+	{	
+		System.out.println("In Child 1 arg cons");
+	}
+	public static void main(String args[])
+	{
+		new Child();
+	}
+	
+}
+
+In Child 0 arg cons
+Here code is executed as when super is called it executes zero arg default cons
+
+Eg
+---------------
+class Parent
+{
+	Parent()
+	{
+		System.out.println("In Parent 0 arg cons");
+	}
+}
+
+class Child extends Parent
+{
+	Child()
+	{	//super//code is generated
+		System.out.println("In Child 0 arg cons");
+	}
+	
+	Child(int a)
+	{	
+		System.out.println("In Child 1 arg cons");
+	}
+	public static void main(String args[])
+	{
+		new Child();
+	}
+	
+}
+
+
+In Parent 0 arg cons
+In Child 0 arg cons
+
+here compiler automatically generates super keyword at the beginnning of the child cons
+so it executes parent zero arg cons first and then child
+
+Another example
+
+class Parent
+{
+	Parent()
+	{	//super//object class default cons executed
+		System.out.println("In Parent 0 arg cons");
+	}
+}
+
+class Child extends Parent
+{
+	Child()
+	{	
+		//super
+		System.out.println("In Child 0 arg cons");
+	}
+	
+	Child(int a)
+	{	
+		System.out.println("In Child 1 arg cons");
+	}
+	public static void main(String args[])
+	{
+		new Child();
+		new Child(10);
+	}
+	
+}
+
+In Parent 0 arg cons
+In Child 0 arg cons
+In Parent 0 arg cons
+In Child 1 arg cons
+
+Eg
+--------
+class Parent
+{
+	Parent()
+	{
+		System.out.println("In Parent 0 arg cons");
+	}
+}
+
+class Child extends Parent
+{
+	
+	public static void main(String args[])
+	{
+		new Child();
+	}
+	
+}
+
+here new child executes child default cons..which has super in its first line and so parent zero arg cons executed
+

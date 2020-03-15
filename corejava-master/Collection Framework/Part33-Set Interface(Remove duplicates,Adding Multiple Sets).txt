@@ -1,0 +1,58 @@
+case1:
+adding one collection data to another
+1)using constructor-one collection data can be added
+2)using addAll()-multiple collection data can be added
+
+
+LinkedHashSet<String> lhs = new LinkedHashSet<String>();
+		lhs.add("Bishan");
+		lhs.add("Somnath");
+
+		HashSet<String> hs = new HashSet<String>(lhs);//add single collection class
+		hs.add("Soumya");
+
+		System.out.println(hs);
+		
+		LinkedHashSet<String> lhs1 = new LinkedHashSet<String>();
+		lhs1.add("Bishan");
+		lhs1.add("Somnath");
+		
+		LinkedHashSet<String> lhs2 = new LinkedHashSet<String>();
+		lhs2.add("SS");
+		lhs2.addAll(lhs1);//multiple collection data
+		
+		LinkedHashSet<String> lhs3 = new LinkedHashSet<String>();
+		lhs3.add("Java");
+		lhs3.add("Angular");
+		
+		lhs2.addAll(lhs3);//multiple collection data
+		System.out.println(lhs2);
+
+
+
+
+[Bishan, Soumya, Somnath]
+[SS, Bishan, Somnath, Java, Angular]
+
+
+case2:
+Parent p=new Child();
+
+HashSet<String> lhs = new LinkedHashSet<String>();
+		lhs.add("FF");
+		lhs.add("FF");
+		lhs.add("FF");
+		System.out.println(lhs);
+
+[FF]
+
+
+case3:removing duplicates from arrayList
+
+		ArrayList<String> al = new ArrayList<String>();
+		al.add("Soumya");
+		al.add("Bishan");
+		al.add("Soumya");
+
+		HashSet<String> hs = new HashSet<String>(al);
+		System.out.println(hs);

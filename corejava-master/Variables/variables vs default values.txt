@@ -1,0 +1,75 @@
+datatype=default value
+1. byte =0
+2. short=0
+3. int=0
+4. long=0
+6. float=0.0
+7. double=0.0
+8. boolean =false
+
+for objects default values are null
+
+instance variables v default values
+class test3
+{
+int a;
+boolean b;
+public static void main(String args[])
+	{
+test3 t=new test3();
+System.out.println(t.a);
+System.out.println(t.b);
+	}
+
+}
+
+D:\ITEMS\project\java\Variables>java test3
+0
+false
+
+ //jvm initialises default values
+
+
+static variables v default values
+
+class test3
+{
+static int a;
+static boolean b;
+public static void main(String args[])
+	{
+
+System.out.println(test3.a);
+System.out.println(test3.b);
+	}
+
+}
+
+D:\ITEMS\project\java\Variables>java test3
+0
+false
+ //jvm initialises default values
+local variables v default values
+
+class test3
+{
+
+public static void main(String args[])
+	{
+ int a;
+ boolean b;
+System.out.println(a);
+System.out.println(b);
+	}
+
+}
+D:\ITEMS\project\java\Variables>javac test3.java
+test3.java:8: error: variable a might not have been initialized
+System.out.println(a);
+                   ^
+test3.java:9: error: variable b might not have been initialized
+System.out.println(b);
+                   ^
+2 errors
+
+for local variables we must perform initialization and jvm does not provide initalization automatically

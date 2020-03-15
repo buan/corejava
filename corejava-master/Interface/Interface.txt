@@ -1,0 +1,462 @@
+Interface =place to define all abstract methods
+interface i1{
+abstract void m1()//by default all methods are abstract and public,so overriding methods should be public
+}
+
+eg-1
+interface i1{
+	void m1();
+	void m2();
+}
+
+class Test implements i1{
+	public void m1(){
+		System.out.println("in m1");
+	}
+	public void m2(){
+		System.out.println("in m2");
+	}
+	
+	public static void main(String[] args) {
+		Test t=new Test();
+		t.m1();t.m2();
+		
+		//Parent p=new Child();
+		i1 i=new Test();
+		i.m1();i.m2();
+	}
+}
+
+
+in m1
+in m2
+in m1
+in m2
+
+
+eg-2
+interface Message {
+	void wish();
+}
+
+class T1 implements Message {
+	public void wish() {
+		System.out.println("good Morning");
+	}
+}
+
+class T2 implements Message {
+	public void wish() {
+		System.out.println("good Night");
+	}
+
+}
+class Test{
+	
+	public static void main(String[] args) {
+		Message t1 = new T1();
+		t1.wish();
+
+		Message t2 = new T2();
+		t2.wish();
+	}
+}
+
+eg-3
+interface Message {
+	void wish1();
+	void wish2();
+}
+
+abstract class T1 implements Message {
+	public void wish1() {
+		System.out.println("good Morning");
+	}
+}
+
+class T2 extends T1 {
+	public void wish2() {
+		System.out.println("good Night");
+	}
+
+}
+class Test{
+	
+	public static void main(String[] args) {
+		Message t1 = new T2();
+		t1.wish1();t1.wish2();
+	}
+}
+
+eg-any return type and any no. of args
+interface it1{
+String m1(int a,int b);
+int m2(char ch,String str);
+void m3(int a)
+}
+
+eg-overloading 
+interface it1{
+void m1(int a);
+void m1(int a,int b);
+void m1(char c)
+}
+
+
+interface it1{
+void m1(int a);
+void m1(int a,int b);
+void m1(char c);
+}
+
+abstract class Child1 implements it1{
+	public void m1(int a){
+		System.out.println(a);
+	}
+	public void m1(int a,int b){
+		System.out.println(a+b);
+	}
+}
+
+class Child2 extends Child1{
+	public void m1(char c){
+		System.out.println(c);
+	}
+	
+}
+
+class Test{
+	public static void main(String[] args) {
+		it1 i=new Child2();
+		i.m1(2);
+		i.m1(2,6);
+		i.m1('g');
+	}
+}
+
+eg-4
+interface it1{
+String m1();
+int m2();
+void m3();
+
+}
+
+abstract class Child1 implements it1{
+	public String m1(){
+		return "S";
+	}
+	public int m2(){
+		return 12;
+	}
+}
+
+class Child2 extends Child1{
+	public void m3(){
+		System.out.println("void method");
+	}
+	
+}
+
+class Test{
+	public static void main(String[] args) {
+		it1 i=new Child2();
+		System.out.println(i.m1());
+		System.out.println(i.m2());
+		i.m3();
+	}
+}
+
+
+eg-3
+interface extends interface
+class implements interface
+
+case1:
+interface i1{
+	void m1();
+}
+
+interface i2 extends i1{
+	void m2();
+}
+
+interface i3 extends i2{
+	void m3();
+}
+
+public class Test implements i3{
+	public void m1(){
+		System.out.println("in m1");
+	}
+	public void m2(){
+		System.out.println("in m2");
+	}
+	public void m3(){
+		System.out.println("in m3");
+	}
+	
+	public static void main(String[] args) {
+		Test t=new Test();
+		t.m1();t.m2();t.m3();
+	}
+}
+
+case 2:one class extends one class
+one interface extends multiple interfaces
+
+interface i1{
+	void m1();
+}
+
+interface i2{
+	void m2();
+}
+
+interface i3 extends i1,i2{
+	void m3();
+}
+
+public class Test implements i3{
+	public void m1(){
+		System.out.println("in m1");
+	}
+	public void m2(){
+		System.out.println("in m2");
+	}
+	public void m3(){
+		System.out.println("in m3");
+	}
+	
+	public static void main(String[] args) {
+		Test t=new Test();
+		t.m1();t.m2();t.m3();
+	}
+}
+
+case3:one class implements multiple interface
+
+nterface i1{
+	void m1();
+}
+
+interface i2{
+	void m2();
+}
+
+
+
+public class Test implements i1,i2{
+	public void m1(){
+		System.out.println("in m1");
+	}
+	public void m2(){
+		System.out.println("in m2");
+	}
+	public void m3(){
+		System.out.println("in m3");
+	}
+	
+	public static void main(String[] args) {
+		Test t=new Test();
+		t.m1();t.m2();t.m3();
+	}
+}
+
+
+class A extends B--->valid
+class A extends B,C-->invalid
+class A extends A->invalid
+class A implements It1->valid
+class A implements It1,It2->valid
+
+interface It1 extends It2-->valid
+interface It1 implements It2-->invalid
+interface It1 extends It2,It3-->valid
+interface It1 extends It1-->invalid
+interface It1 extends A-->invalid
+
+[extends must be first keyword]
+class A extends B implements It1,It2--->valid
+class A implements It1,It2 extends B --->invalid
+
+Nested Interfaces
+=================
+
+1)declaring interface inside an interface
+interface i1{
+	void m1();
+	interface i2{
+		void m2();
+	}
+}
+
+class Test implements i1,i1.i2{
+	public void m1(){
+		System.out.println("in i1 interface");
+	}
+	public void m2(){
+		System.out.println("in nested i2 interface");
+	}
+	
+	public static void main(String[] args) {
+		Test t=new Test();
+		t.m1();t.m2();
+	}
+	
+}
+
+in i1 interface
+in nested i2 interface
+
+2)Declaring interface inside abstract class
+abstract class i1{
+	abstract void m1();
+	interface i2{
+		void m2();
+	}
+}
+
+class Test extends i1 implements i1.i2{
+	public void m1(){
+		System.out.println("in i1 interface");
+	}
+	public void m2(){
+		System.out.println("in nested i2 interface");
+	}
+	
+	public static void main(String[] args) {
+		Test t=new Test();
+		t.m1();t.m2();
+	}
+	
+}
+
+in i1 interface
+in nested i2 interface
+
+3. Declaring interface inside class
+class A{
+	
+	interface i2{
+		void m2();
+	}
+}
+
+class Test implements A.i2{
+	public void m2(){
+		System.out.println("in nested i2 interface");
+	}
+	
+	public static void main(String[] args) {
+		Test t=new Test();
+		t.m2();
+	}
+	
+}
+
+Interface Variables
+======================
+interface i1{
+int a=10;//public static final
+void m1();//public abstract
+}
+
+eg-1
+====
+interface i1{
+int a=10;//public static final
+void m1();//public abstract
+}
+
+class Test implements i1{
+	public void m1(){
+		a=a+10;
+		System.out.println(a);
+	}
+	
+	public static void main(String[] args) {
+		Test t=new Test();
+		t.m1();
+	}
+	
+}
+
+Exception in thread "main" java.lang.Error: Unresolved compilation problem: 
+	The final field i1.a cannot be assigned
+
+
+eg-2
+====
+interface i2{
+int a=10;//public static final
+void m2();//public abstract
+}
+
+class Test implements i1,i2{
+	public void m1(){
+		
+		System.out.println(a);
+	}
+	public void m2(){
+		
+		System.out.println(a);
+	}
+	public static void main(String[] args) {
+		Test t=new Test();
+		t.m1();
+	}
+	
+}
+
+Exception in thread "main" java.lang.Error: Unresolved compilation problem: 
+	The field a is ambiguous
+
+Interface java 7 & java 8 Features
+==================================
+
+Java7-abstract
+Java8-abstract,static,default
+
+eg-1
+====
+interface i1{
+int a=10;//public static final
+
+void m1();//public abstract
+default void m2(){
+	System.out.println("default method implemented");
+}
+static void m3(){
+	System.out.println("static method implemented");
+}
+}
+
+
+class Test implements i1{
+	public void m1(){
+		System.out.println(a);
+	}
+	
+	public static void main(String[] args) {
+		Test t=new Test();
+		t.m1();t.m2();i1.m3();
+	}
+	
+}
+
+10
+default method implemented
+static method implemented
+
+
+eg-2
+====
+Main method is allowed in interface in 1.8
+=========================================
+interface i1{
+public static void main(String[] args) {
+	System.out.println("main method inside interface");
+}
+}
+

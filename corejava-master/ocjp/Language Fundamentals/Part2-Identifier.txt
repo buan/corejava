@@ -1,0 +1,159 @@
+A name in Java Program is called Identifier. This is used for identification purpose. Can be method name,class name,label name,variable name
+
+class Test-> 1 {
+
+	
+	public static void main-> 2(String-> 3[] args->4) {
+		
+int x->5=10
+
+	}
+
+}
+
+5 identifiers are there here
+
+Rules for Java identifier
+=========================
+1)The only allowed characters are a-z A-z 0-9 _ $. Other than this no characters are allowed
+total_num->allowed
+total#->not allowed
+
+2)Identifiers should never start with a digit
+total123->allowed
+123total->not allowed
+
+3)Java identifers are always case sensitive
+int number=1
+int Number=1
+int NUMBER=1
+
+all these are different. we can differentiate with respect to case
+
+4)There is no character limit for java identifiers but it is recommended not to use very lengthy identifier names
+(Do it yourself)
+
+5)You cannot use reserved words as identifers
+int x=10->Ok
+int if=3->not Ok(if is a reserved word)
+
+6) All predefined class names and interface names can be used as identifiers
+class Test {
+
+	
+	public static void main(String[] args) {
+		int String=888;
+		System.out.println(String);
+
+	}
+
+}
+
+
+Questions
+=========
+1)Which are valid identifiers?
+total_number-valid
+total#-not valid # should not be allowed
+123total -not valid.shouldnt start with numbers
+total123-valid
+ca$h-valid
+_$_$_$_$_-valid
+all@hands-not valid.@
+java2Share-valid
+Integer-valid.not reserved
+Int-valid.not reserved
+int-not valid.reserved keyword
+
+Reserved Keywords
+=================
+In english,there are some specific words for specific purpose.
+Cat
+Dog->determines type of animal
+eat->determines a type of action
+etc
+
+Java ->53 reserved keywords
+
+keywords(50),Reserved Literals(3)->true,false,null
+
+used keywords(48)->if-else,for etc
+unused keywords(2)->goto,const
+
+Reserved Datatypes(8)
+=====================
+byte,short,int,long,float,char,double,boolean
+
+Reserved Flow Control(11)
+=========================
+if else,switch,case,default,while,do,for,break,continue,return
+
+Reserved modifiers(11)
+======================
+public,protected,default,abstract,final,static,synchronized,native,strictfp(1.2)
+transient,volatile
+
+Reserved keywords for exception handling(6)
+========================================
+try,catch,finally,throw,throws,assert(1.4)
+
+Reserved keywords for class(6)
+============================
+class,interface,extends,implements,package,import
+
+Reserved keywords for object(4)
+============================
+new,instanceOf,super,this
+
+Reserved keywords for return type(1)
+====================================
+void
+
+In java, return type is mandatory. If there is no return type,then return type is void
+
+Unreserved keywords
+====================
+goto
+const=(use final instead)
+
+If you use these keywords you will get compile time error
+True,false,null->reserved literals
+For boolean, default value =null
+
+Enum(1)(1.5v)-We can use enum to use a group of named options
+
+enum month{
+JAN,FEB,DEC ...
+}
+
+Conclusion
+==========
+1)All 53 reserved words in Java contains lowercase alphabets symbols
+2) In Java there is new keyword but there is no delete keyword, as responsibility of deleting useless object is on garbage collector
+
+3)strictfp(1.2v), assert(1.4v), enum(1.4v) are new keywords in java
+
+Common mistakes in terminology
+==============================
+strictfp but not strictFp
+instanceof but not instanceOf
+synchronized but not synchronize
+extends but not extend
+implements not implement
+import not imports
+const not constant
+
+
+Some questions
+==============
+Which are java reserved words
+
+public-r
+static-r
+void-r
+main
+String-r
+args-nr
+
+
+
