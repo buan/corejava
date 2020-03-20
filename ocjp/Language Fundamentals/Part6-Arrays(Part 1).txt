@@ -41,3 +41,74 @@ int[] a[],b;[a=2,b=1]
 int[]  a[],b[];[a=2,b=2]
 int[] []a,b;[a=2,b=2](in this case, if dimension is given before variable,compiler will consider int[] [] as common,in that case a,b both will have 2(int [][] a,int [][] b)
 int[] []a,b[];[a=2,b=3](CE because dimension before variable name is only possible for 1st variable. for other variables this rule is not applicable,hence error)
+
+
+Some more examples
+==================
+int[] a,[]b,[]c;(iv)
+
+3-D array
+---------
+int[][][] a;
+int  [][][]a;
+int   a[][][];
+int[]  [][]a;
+int[]  []a[];
+int[]  a[][];
+int[][] a[];
+int[][] []a;
+int [][]a[];
+int []a[][];
+
+Array Creation:
+---------------
+1)Every array in java is an object only,hence we can create arrays by using new operator.
+int[] a=new int[3];
+
+2)For every arraytype corresponding classes are available. These classes are part of java language,but not available to programmer level.
+
+public static void main(String[] args) {
+		int  []x = new int[3];
+		System.out.println(x.getClass().getName());
+	}
+
+O/p:[I
+
+
+Array Type	Coressponding Class Name
+int[]		[I
+int[][]		[[I
+double[]	[D
+short[]		[S
+byte[]		[B
+boolean[]   	[Z
+
+
+
+3)At the time of array creation, we should compulsory specify size, otherwise we will get CE.
+
+int[]  x=new int[](iv)
+int[]  x=new int[6](v)
+
+int[]  x=new int[0](v)->It is legal to have an array with size 0 in java.
+
+Best ex-
+public static void main(String[] args) {
+		System.out.println(args.length);->we are passing 0 argument
+	}
+
+int[] x= new int[-3];
+No CE
+java.lang.NegativeArraySizeException
+
+int[] x=new  int['a']-(v),because a is converted to 97 char(1 byte) gets fit into int(4 bytes)
+
+byte b=30
+int[] x=new int[b];-(v)
+
+
+int[] x=new int[s=10L];-(iv)[PLP found long req:int]
+To specify arraysize allowed data types are char,byte,short
+
+
+int[] x=new int[666666666666666666666666];-(iv)is out of range 
