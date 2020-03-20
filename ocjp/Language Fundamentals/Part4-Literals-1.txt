@@ -63,4 +63,24 @@ double d=0X123.45(iv)
 We can define floating point literals in decimal and we cant specify in Octal and Hexadecimal
 
 double d=0786;(iv).it behaves as octal since there is no decimal
-double d=OxFace
+double d=OxFace(v)
+double d=OxFace.0(iv)
+double d=0786.0(iv)
+double d=10(v)
+double d=0777(v)
+
+We can assign integral literal to floating types and it can be specified either decimal/octal/hexadecimal forms
+
+int x=10.0(iv) PLP found double req:int
+
+We cant assign floating point literal to integral types
+
+
+
+Boolean
+=======
+boolean b=true(v)
+boolean b=0(iv)-> CE:Incompatible Type found int required boolean
+boolean b=True(iv)CE:cannot find symbol True
+boolean b=False(iv)CE:cannot find symbol False
+boolean b="False"(iv)CE:Incompatible Type found string required boolean
