@@ -21,3 +21,23 @@ int[] x;->recommended.because name is clearly seperated from type.
 
 int[6] x;(iv)->at the time of declaration,we cant specify size,otherwise error
 int[] x;(v)
+
+Double Dimension arrays
+=======================
+int[][] x;
+int   [][] x;
+int x[][];
+
+int[]  []x;
+int [] x[];
+int  []x[];
+
+All are valid
+
+Which of the following are valid
+================================
+int[] a,b;[a=1,b=1]
+int[] a[],b;[a=2,b=1]
+int[]  a[],b[];[a=2,b=2]
+int[] []a,b;[a=2,b=2](in this case, if dimension is given before variable,compiler will consider int[] [] as common,in that case a,b both will have 2(int [][] a,int [][] b)
+int[] []a,b[];[a=2,b=3](CE because dimension before variable name is only possible for 1st variable. for other variables this rule is not applicable,hence error)
