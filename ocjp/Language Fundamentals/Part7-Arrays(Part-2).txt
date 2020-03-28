@@ -1,0 +1,64 @@
+2-D array creation
+------------------
+In Java,2-D array not implemented by using matrix implementation.Some people followed array or arrays approach for multi dimensional array creation.The advantage of this approach is memory utilization will be improved.
+
+Check excel sheet
+
+Valid or invalid
+-----------------
+
+int[] a=new int[];iv
+int[] a=new int[3];v
+int[][] a=new int[][];iv
+int[][] a=new int[3][];v
+int[][] a=new int[3][4];v
+int[][][] a=new int[3][4][5];v
+int[][][] a=new int[3][4][];v
+int[][][] a=new int[3][][5];iv-without 2nd d size,you cant specify subsequent dimension
+int[][][] a=new int[][4][5];iv
+
+Array initialization
+--------------------
+Once we create an array every element,default value will be zero(int) or based on datatype
+Eg-1
+-----
+int [] a=new int[3];
+System.out.println(a);
+System.out.println(a[0]);
+
+[I@36baf30c
+0
+
+Once we are trying to print reference variable, the variable will print the following form
+classname@hashcode by calling the toString()
+
+Eg-2
+----
+int [][] a=new int[2][3];
+System.out.println(a);
+System.out.println(a[0]);
+System.out.println(a[0][0]);
+
+[[I@36baf30c(because x is a reference to 2 d array)
+[I@7a81197d(because x is a reference to 1 d array)
+0
+
+eg-3
+----
+int [][] a=new int[2][];
+System.out.println(a);[[I@e32er
+System.out.println(a[0]);null
+System.out.println(a[0][0]);NPE
+	}
+
+If we are trying to perform any operation on Null,then we will get RE saying NPE.
+
+Once we create an array every array element by default initialized with default values. If we are not satisfied with default values,then we can override these values with our customized values	
+
+int[] a = new int[2];
+a[0] = 4;
+
+a[-10] = 4;AIOFB
+a[1.0] = 4;PLP
+
+If we are trying to array element with out of range index(either +ve/-ve int value)then we will get RE saying AIOB 

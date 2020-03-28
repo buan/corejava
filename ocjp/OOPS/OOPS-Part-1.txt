@@ -1,0 +1,103 @@
+Data Hiding
+Abstraction
+Encapsulation
+Tightly encapsulated class
+Is a Relationship
+Has a Relationship
+Method Signature
+Overloading
+Overriding
+Static Control Flow
+Constructors
+Coupling
+Cohesion
+Type-casting
+
+Data Hiding
+===========
+Outside person cant access our internal data directly or our internal data should not go out directly. This oop feature is nothing but data hiding.After validation or authentication,outside person can access our internal data. After providing proper username/pass,we can access our inbox. Even though we are valid customer of bank,we can able to access our account info and we cant access other account info.
+
+By declaring data member as private,we can achieve data hiding
+
+public class Account{
+private double balance
+
+public double getBalance(){
+//validation
+return balance;
+}
+}
+
+The main advantage of data hiding is security.It is highly recommended data member(variable) as private
+
+
+Abstraction
+===========
+Hiding internal implementation and highlight set of services we are offering is a concept of abstraction.Eg-Through bank atm gui screen,bank people highlighting set of services without highlighting internal implementation
+
+Advantage-
+Security-hiding internal info
+Easiness to use system
+Maintainability
+
+By using abstract classes and interfaces we can perform abstraction
+
+Encapsulation
+=============
+Process of binding data members and corresponding methods into a single unit is called encapsulation. Every java class is an example of encapsulation
+
+class Student{
+data members
+	+
+methods(behaviour)
+}
+
+Encapsulation=data hiding+abstraction
+eg
+
+balance enquiry button->getBalance() 
+update enquiry button->setBalance()
+
+The main advantage of encapsulation is we can achieve security.But main disadvantage is it increases length of code and slows down execution.
+
+Tightly Encapsulated Class
+--------------------------
+A class is set to be tightly encapsulated if each and every variable is declared as private. Whether class contains getter and setter methods or variable is public or not we dont need to check
+
+public Class Account{
+
+private double balance;
+public double getBalance(){
+
+}
+}
+
+
+eg-
+public class A{
+
+private int a=10;
+
+}
+class B extends A{
+int y=20;//not tight 
+}
+class C extends A{
+private int z=23;
+}
+
+Another example
+----------------
+class A {
+	int x = 10;//not tight
+}
+
+class B extends A {
+	private int y = 20;//not tight
+}
+
+class C extends B {
+	private int z = 30;//not tight
+}
+
+If parent class is not tightly encapsulated then no child class is tightly encapsulated
