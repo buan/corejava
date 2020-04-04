@@ -1,0 +1,117 @@
+IS A RELATIONSHIP
+=================
+1)Inheritance
+2)extends
+3)Reusability
+It is also known as inheritance. Main advantage is code reusability. By using extends keyword we can implement "is a relationship"
+
+class P
+{
+	public void m1() {
+		System.out.println("in m1");
+	}
+}
+
+class C extends P{
+	public void m2() {
+		System.out.println("In m2");
+	}
+}
+
+class Test{
+	public static void main(String[] args) {
+		P p =new P();
+		p.m1();
+		p.m2();//invalid(CE:cannot find symbol method m2()
+	
+		C c=new C();
+		c.m1();
+		c.m2();
+		
+		P p1=new C();
+		p1.m1();
+		p1.m2();//invalid(CE:cannot find symbol method m2()
+		
+		C c=new P();//invalid(CE:incompatible types)
+	
+	}
+	
+	
+}
+
+1)Whatever methods parent has by default available to the child. Hence, under the child reference we can call both parent and child class methods
+
+2)Whatever methods child has by default not available to the parent,and hence all the parent reference we cant call, child specific methods
+
+3)Parent reference can be used to hold child object but by using that reference we cant call child specific methods but we can call methods present in parent class
+
+4)Parent reference can be used to hold child object but child reference cant be used to hold parent object
+
+
+Total Java API is based on Inheritance object. The most common methods which are applicable for any java object are defined in Object class.Hence every class in java is a child class of object. Either directly or indirectly,so that object class ,methods by default available to every java class without rewriting.Due to this Object class acts as root for all java classes
+
+Throwable class defines most common methods which are required for every exception and error classes,hence this class acts as root for java exception hierarchy
+
+Object->String,StringBuffer,......., Throwable
+
+Throwable->Exceptions,Errors
+Exceptions->RE exception,IO exception
+Error->Out of Memory Error
+
+Multiple Inheritance
+--------------------
+A java class cant extend more than 1 class at a time,hence java wont provide support for multiple inheritance in classes.
+
+class A extends B,C{//invalid
+
+}
+
+Note:If our class doesnt extend any other class,then only our class is direct child of object. If our class extends any other class then our class is indirect child class of object.
+
+class A extends B
+Object->B->A(correct)
+B	   Object(Wrong)
+    \      /
+	A
+
+Either directly or indirectly java wont provide multiple inheritance
+
+Why Java wont provide support for multiple inheritance
+-------------------------------------------------------
+There may be a chance of ambiguity problem,hence java wont provide support for multiple inheritance.
+
+P1(m1 method)  P2(m1 method)
+
+If C extends P1 and P2 and c.m1(),which m1 method will it execute?
+
+But interface cant extend ay number of interface simultaneously,hence multiple inheritance is allowed
+
+interface A{
+}
+
+interface B{
+}
+
+interface C extends A,B{
+}
+
+Ambiguity problem wont be there in interfaces.
+
+
+PI1-m1 PI2-m1
+\        /
+ \      /
+  \    /
+   \  /
+    CI->m1()
+
+Event though multiple methods are declared,implementation is unique,hence there is no chance of ambiguity.Strictly speaking through interfaces we wont get any inheritance.
+
+
+Cyclic Inheritance
+-------------------
+is not allowed in java.Ofcourse it is not required.
+eg
+1)class A extends A{}
+2)class A extends B{}
+class B extends A{}CE:not allowed

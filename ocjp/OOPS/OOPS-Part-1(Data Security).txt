@@ -101,3 +101,6 @@ class C extends B {
 }
 
 If parent class is not tightly encapsulated then no child class is tightly encapsulated
+
+
+All these examples and concepts are related SECURITY

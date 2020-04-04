@@ -1,0 +1,108 @@
+Has A Relationship
+------------------
+It is also known as composition or aggregation
+There is no psecific keyword to implement HAS A RELATION but most of the times we are depending on NEW keyword
+The main advantage is reusability of code
+
+Eg
+class Engine{
+//Engine functionality
+
+}
+
+class Car{
+
+Engine e =new Engine();
+}
+
+Car HAS A engine reference
+
+Difference between composition and aggregation
+----------------------------------------------
+COMPOSITION
+============
+Without existing container object, if there is no chance of existing contained objects,then container and contained objects are STRONGLY ASSOCIATED and this strong association is nothing but composition
+
+Eg-
+University consists of several departments. Without existing university,there is no chance of existing departments.Hence university and departments are strongly associated and this strong association is nothing but composition
+
+AGGREGATION
+===========
+Without existing container object,if there is a chance of existing contained object then container and container objects are WEAKLY ASSOCIATED and this weak association is nothing but aggregation
+
+Eg-
+Departments contains proffessors. Without departments there may be a chance of existing of proffesors. They may be moved to other departments or released. Hence departments and professors are weakly associated
+
+NOTE:In composition container object holds directly contained objects whereas in aggregation container objects holds just references of contained objects
+
+IS A Vs HAS A
+==============
+If we want total functionality of a class,automatically then we should go for IS A relationship.
+
+
+Person Class
+     |
+     V
+Student Class
+
+
+If we want part of the functionality then we should go for HAS A relationship
+
+Test Class(100 methods)
+        |
+        V
+Demo Class
+{
+Test t=new Test();
+t.m1();
+t.m7();
+}
+
+Method Signature
+================
+In Java method signature consists of method names and argument types.
+
+public static int m1(int i,float f)
+              ---------------------
+
+Return type is not part of method signature in java.Compiler will use method signature to resolve method calls
+
+Within a class 2 methods with same signature not allowed
+Eg-
+public static int m1(int a){}
+public void int m1(int b){}
+CE:method already defined
+
+Overloading
+-----------
+Two methods are said to be overloaded if both methods have same name but different argument types.In C language ,there is no concept of method overloading. If a method is not overloaded we need to declare new method. It increases complexity of programming.
+
+abs(int i)
+labs(int i)
+fabs(int i)
+
+In Java we can use same method signature for different functionality.These methods are said to be overloaded. Reduces complexity of programming
+
+abs(int i)
+abs(float f)
+
+Eg-
+public class Student {
+	void test() {
+		System.out.println("no args");
+	}
+	
+	void test(float b) {
+		System.out.println("float args");
+	}
+	void test(int a) {
+		System.out.println("int args");
+	}
+	public static void main(String[] args) {
+		Student s = new Student();
+		s.test();
+		s.test(2);
+		s.test(2.3f);
+	}
+
+Method resolution always taken care by compiler based on refrence type hence overloading is also considered as compile time polymorphism/static time polymorphism/early binding
