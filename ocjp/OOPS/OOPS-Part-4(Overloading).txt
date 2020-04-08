@@ -1,0 +1,105 @@
+Overloading
+===========
+Case1:Automatic Promotion
+
+While resolving overloaded methods,if exact matched method is not available,we wont get any compile time error immediately.First it will promote argument to the next level and check whether matched method is available or not.If a matched method is available,then it will be considered. If matched method is not available,compiler promotes argument to the next level.This process will be continued until all possible promotions. Still if matched method isnt available,then we wil get compile time error.Following are all possible promotions
+
+byte->short->int
+char->int
+
+int->long->float->double
+
+Exact match will get chance
+--------------------------
+	class Test{
+		
+		public void disp(int a) {
+			System.out.println("int arg");
+		}
+		
+		public void disp(float f) {
+			System.out.println("float args");
+		}
+		public static void main(String[] args) {
+			Test t=new Test();
+			t.disp(4);
+			t.disp('f');->promoted to int
+			t.disp(3.5f);
+			
+					
+		}
+	}
+
+float args
+int arg
+float args
+
+
+case2:
+
+class Test{
+		
+		public void show(String s) {
+			System.out.println("String version");
+		}
+		
+		public void show(Object o) {
+			System.out.println("Object version");
+		}
+		public static void main(String[] args) {
+			Test t=new Test();
+			t.show(new Test());
+			t.show("SS");
+			t.show(null);
+		}
+	}
+
+Object version
+String version
+String version
+
+Explanation:While resolving overloaded methods,compiler will give precedence to child arguments while comparing with parent type argument
+
+case3:
+	class Test{
+		
+		public void show(String s) {
+			System.out.println("String version");
+		}
+		
+		public void show(StringBuffer sb) {
+			System.out.println("String Buffer version");
+		}
+		public static void main(String[] args) {
+			Test t=new Test();
+			t.show("SS");//String version
+			t.show(new StringBuffer("ff"));//String Buffer version
+			t.show(null);//Exception in thread "main" java.lang.Error: Unresolved compilation problem: 	The method show(String) is ambiguous for the type Test
+		}
+	}
+
+
+case4:
+class Test{
+
+	public void show(int i, float f) {
+		System.out.println("int-float version");
+	}
+
+	public void show(float f, int i) {
+		System.out.println("float-int version");
+	}
+
+	public static void main(String[] args) {
+		Test t = new Test();
+		t.show(10, 10.5f);//int-float version
+		t.show(10.5f, 10);//float-int version
+		t.show(10, 10);//both method got matched. ambiguous
+		t.show(10.5f, 10.5f);//The method show(float, int) in the type Test is not applicable for the arguments (float, float)
+
+	at First/Test.Test.main
+	}
+}
+
+
+case5:to be done later

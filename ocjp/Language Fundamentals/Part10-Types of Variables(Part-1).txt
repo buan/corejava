@@ -1,0 +1,133 @@
+Division-1
+Types Of Variables
+==================
+Based on type of value represented by a variables,all variables are divided into
+1)Primitive variables-Represent primitve values.int x=10
+2)Reference variables-Represents object values.String s= new Student();
+
+Division-2
+Based on position of delaration and behaviour,all variables are divided into 3 types
+1)instance variables
+--------------------
+a)If a value of a variable is varied from object to object such types of variables such variable is called instance variables. For every object seperate copy of instance variables will be created
+
+b)Instance variables should be declared within the class but outside any block or constructor
+
+c)Instance variable will be created at the time of object creation and destroyed at the time of object destruction. Hence scope of variable is same as scope of object
+
+d)Instance variables will be stored in the heap memory as a part of object
+
+We cant access instance variables directly from static area. But we can access by using object reference. But we can access instance variables directly from instance area(instance method for eg)
+
+
+class Test {
+
+	int x = 10;
+
+	public void m1() {
+		System.out.println(x);
+	}
+
+	public static void main(String[] args) {
+		Test t = new Test();
+		System.out.println(t.x);
+		t.m1();
+	}
+}
+
+e)JVM will provide default values and we dont need to perform initialization
+
+class Test {
+
+	int i;
+	double d;
+	boolean b;
+	String s;
+
+	public static void main(String[] args) {
+		Test t = new Test();
+		System.out.println(t.i);
+		System.out.println(t.d);
+		System.out.println(t.b);
+		System.out.println(t.s);
+	}
+}
+
+f)Instance variables are known as object level variables/attributes
+
+2)local variables
+------------------
+
+
+3)static variables
+------------------
+a)If value of variable doesnt differ from object to object,we need to declare such variables as static variables. We need to declare variable as static modifier
+
+b)For instance variables,seperate copy will be created. For static variable, a single copy will be created and shared by every copy of the class
+
+c)Static variables should be declared within the class directly but outside of any constructor/block
+
+d)Static variables will be created at the time of class loading and destroyed at class unloading.
+Scope of variable will be same as scope of class
+
+Start JVM
+Create and start main thread
+Locate .class file
+load .class file----static variable creation
+execute main method
+unload test.class-----static variable destruction
+terminate main method
+shutdown JVM
+
+e)Static variable will be stored in method area
+f)We can access static variables either by object reference or class name.
+Within the same class,it is not required to use classname. we can use directly. We can access static variables from instance and static areas
+
+class Test {
+
+	static int x=10;
+	public static void main(String[] args) {
+		System.out.println(Test.x);
+		System.out.println(x);
+		Test t=new Test();
+		System.out.println(t.x);
+	}
+}
+
+g)JVM will provide default values and we are not required to perform initialization explicitly
+class Test {
+
+	static int i;
+	static double d;
+	static String s;
+	public static void main(String[] args) {
+	System.out.println(i);
+	System.out.println(d);
+	System.out.println(s);
+	}
+}
+
+0
+0.0
+null
+
+h)Static variables are also known as class level variables/static variables
+
+example-
+class Test {
+
+	static int i = 10;
+	double d = 20;
+
+	public static void main(String[] args) {
+		Test t = new Test();
+		t.i = 222;//t.i=10 changed to 222 permanently.as this var is shared
+		t.d = 333;//t.d 20 changed to 333 for t object only for others it will remain same
+		Test t1 = new Test();
+		System.out.println(t1.i);//222
+		System.out.println(t1.d);//20
+	}
+}
+
+222
+20.0

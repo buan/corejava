@@ -1,7 +1,7 @@
 Has A Relationship
 ------------------
 It is also known as composition or aggregation
-There is no psecific keyword to implement HAS A RELATION but most of the times we are depending on NEW keyword
+There is no specific keyword to implement HAS A RELATION but most of the times we are depending on NEW keyword
 The main advantage is reusability of code
 
 Eg
