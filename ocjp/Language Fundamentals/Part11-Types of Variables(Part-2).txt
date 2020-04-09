@@ -1,0 +1,158 @@
+Local Variables
+---------------
+a)Sometimes to meet the temporary requirements of the programmer,we can declare variables inside a method or block or constructor.Such type of variables are called local/temporary/stack/automatic variables
+
+b)Local variables will be stored inside stack memory
+
+c)Local variables will be created by executing the block in which it is declared.Once block execution completes,local variables will be destroyed,hence scope of local variable is block in which we declared it.
+
+class Test {
+
+	static int i = 10; 
+
+	public static void main(String[] args) {
+	for(int j=0;j<3;j++) {
+		j=j+i;
+	}
+	System.out.println(j);
+	}
+}
+
+Exception in thread "main" java.lang.Error: Unresolved compilation problem: 
+	j cannot be resolved to a variable
+
+d)Before using the variable if we are not using then it is not required to perform initialization
+
+case-1
+class Test {
+
+	static int i = 10;
+
+	public static void main(String[] args) {
+		int x;
+		System.out.println(x);
+	}
+}
+
+Unresolved compilation problem: 
+The local variable x may not have been initialized
+
+case-2
+class Test {
+
+	public static void main(String[] args) {
+		int x;
+		if(args.length>0) {
+			x=10;
+		}
+		
+		System.out.println(x);
+	}
+}
+
+Unresolved compilation problem: 
+	The local variable x may not have been initialized
+
+case-3
+class Test {
+
+	public static void main(String[] args) {
+		int x;
+		if(args.length>0) {
+			x=10;
+		}
+		else {
+			x=20;
+		}
+		System.out.println(x);
+	}
+}
+
+20
+
+It is not recommended to perform initialization for local variables insided logical blocks because there is no guarantee for the execution of these blocks always at runtime. It is highly recommended to perform initialization for local variables at the time of declaration atleast with the default values.
+
+
+The only applicable modifier for local variables is final.By mistake if we are trying to apply any other modifier, we will get compile time error
+
+
+class Test {
+
+	public static void main(String[] args) {
+		public int x=10;
+	}
+}
+
+Unresolved compilation problem: 
+	Illegal modifier for parameter x; only final is permitted
+
+
+If we are not declaring with any modifier then by default it is default, but this rule is applicable only for instance and static variables and not for local variables
+
+
+CONCLUSIONS
+===========
+1)For instance and static variables,JVM will provide default and we dont provide values explicitly.But for local we need to perform initialization.
+
+2)Instance and static variables can be accessed by mutliple threads simultaneously and these are not thread safe. For local variables for every thread seperate copy will be created,local variables are thread safe
+
+3)Every variable in java should be instance static or local or should be primitive or reference.Hence various possible combinations of variables in java are 
+instance primitive/reference
+local primitive/reference
+static primitive/reference 
+
+class Test {
+
+
+	int a[];
+	public static void main(String[] args) {
+		Test t= new Test();
+		System.out.println(t.a);//no reference then it is null
+		System.out.println(t.a[0]);//if reference is null then we cant access individual element.java.lang.NullPointerException
+	}
+}
+
+
+class Test {
+
+
+	int a[]=new int[3];
+	public static void main(String[] args) {
+		Test t= new Test();
+		System.out.println(t.a);//[I@1d81eb93
+		System.out.println(t.a[0]);//0
+	}
+}
+
+
+same applies for static variable
+
+for local level
+===============
+class Test {
+	 
+	public static void main(String[] args) {
+		int a[];
+		System.out.println(a);
+		System.out.println(a[0]);
+	}
+}
+
+Exception in thread "main" java.lang.Error: Unresolved compilation problems: 
+	The local variable a may not have been initialized
+	The local variable a may not have been initialized
+
+
+class Test {
+	 
+	public static void main(String[] args) {
+		int a[]=new int[5];
+		System.out.println(a);
+		System.out.println(a[0]);
+	}
+}
+
+[I@1d81eb93
+0
+
+once an array is declared whether it is local/static/instance variable,all array values will be initialized with default value
