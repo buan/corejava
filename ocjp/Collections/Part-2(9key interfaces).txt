@@ -1,0 +1,20 @@
+Collection(I)
+=============
+a)If we want to represent a group of individual objects as a single entity then we should go for collection.
+
+b)Collection interface represent most common methods which represent most
+
+c)In general collection interface is considered as root interface of collection framework
+
+d)There is no concrete class which implements collection interface directly
+
+
+Difference between Collection and Collections
+---------------------------------------------
+Collection is an interface. If we want to represent a group of individual objects as a single entity,then we should go for collection.
+
+Collections is an utility class present in java.util package to define several utility methods. for collection objects like sorting,searching etc
+
+List(I)
+------
+It is the child interface of collection. If we want to represent a group of indivdual objects as a single entity where duplicates are allowed and insertion order must be preserved,then we should go for List

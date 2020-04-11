@@ -1,0 +1,48 @@
+An array is an indexed collection of fixed number of homogeneous data elements.The main advantage of arrays is we can represent multiple values by using single variable so that readability of the code will be improved.
+
+Limitations of arrays
+---------------------
+1)Arrays are fixed in size.Once we create an array there is no chance of increasing or decreasing size. Due to this, we must know the size in advance which may not be possible always
+
+2)Arrays can hold only homogeneous elements. 
+Student[] s = new Student[10000]
+s[0]=new Student();
+
+We can solve this problem by using object type arrays
+
+Object [] o=new Object[1000];
+o[0]=new Object()
+
+3)Arrays concept is not implemented based on some standard data structure and hence ready method support is not available.For every requirement we have to write the code explicitly which increases complexity of programming
+
+To overcome the above problems of arrays we should go for collections concept.
+
+1)Collections are growable in nature ie based on our requirement we can increase or decrease the size.
+
+2)Collections can hold both homogeneous and heterogeneous objects.
+
+3)Every collection class is implemented by some standard data structure.SO ready made methods are available.Being a programmer we are responsible to use those methods and we dont need to implement those methods.
+
+
+Differences between arrays and collections
+-------------------------------------------
+1)Collections-Growable
+Arrays-Fixed in size
+
+2)WRT memory-collections are recommended and not arrays
+
+3)WRT Performance-arrays are recommended to use and collections are not
+
+4)Arrays can hold only homogeneous data type elements.Collections can hold both homogeneous and heterogenous elements.
+
+5)There is no underlying DS for arrays.Ready made data support is not available.increase complexity of programming.For Collections, there is some standard data structure. Readymade data support is available.
+
+6)Arrays can store only primitive values/objects but collections only objects
+
+Collection
+==========
+If you want to represent a group of single objects as a single entity,go for collections
+
+Collection Framwework
+=====================
+It contains several classes and interfaces which represents a group of classes as a single entity

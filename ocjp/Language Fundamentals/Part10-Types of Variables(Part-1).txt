@@ -55,11 +55,9 @@ class Test {
 
 f)Instance variables are known as object level variables/attributes
 
-2)local variables
-------------------
 
 
-3)static variables
+2)static variables
 ------------------
 a)If value of variable doesnt differ from object to object,we need to declare such variables as static variables. We need to declare variable as static modifier
 
