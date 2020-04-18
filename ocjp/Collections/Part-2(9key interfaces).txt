@@ -17,4 +17,65 @@ Collections is an utility class present in java.util package to define several u
 
 List(I)
 ------
-It is the child interface of collection. If we want to represent a group of indivdual objects as a single entity where duplicates are allowed and insertion order must be preserved,then we should go for List
+It is the child interface of collection. If we want to represent a group of individual objects as a single entity where duplicates are allowed and insertion order must be preserved,then we should go for List
+
+Check PPT for diagram
+
+In 1.2 version,vector and stack classes were reengineered to implement list interface
+
+Set(I)
+-------
+Child interface of Collection.If we want to represent a group of individual objects as a single entity where duplicates are not allowed and insertion order is not preserved
+
+Sorted Set(I)
+-------------
+Child interface of set. If we want to represent a group of individual objects as a single entity where duplicates are not allowed and all objects should be inserted through some sorting order
+
+Navigable Set(I)
+----------------
+Child interface of sorted set.Contrains several methods for navigation purposes
+
+Differences b/w List and Set
+----------------------------
+List   			Set
+Duplicates allowed      Not allowed
+
+Insertion order          Not preserved
+preserved
+
+
+Queue(I)
+-------
+Child interface of collection. If we want to represent a group of individual objects prior to processing,then we should go for queue.Usually queue follows FIFO order but based on our requirement we can implement our own priority order also.Before sending a mail all mailids have to be stored in some data structure. In which order we added mail ids in the same order only,mail should be delivered. For this requirement queue is best choice.
+
+
+All the above interfaces(C,L,S,SS,NS,Q) are meant for representing individual objects.If we want to represent a group of objects as KEY VALUE pairs,we should go for MAP
+
+MAP(I)
+----
+Map is not child interface for Collection.
+SNo    Name
+1	S
+2 	D
+3	G
+
+Both key value are objects only.Duplicates keys not allowed.Values can be duplicated.
+
+SortedMap(I)
+------------
+Child interface of map.If we want to represent a group of key value pairs according to some sorting order of keys then we should go for SortedMap. In sorted map,the sorting should be based on key but not based on value
+
+NavigableMap(I)
+-------------
+Child interface of Sorted map. Defines several methods for navigation purposes.
+
+Check PPT
+
+Following are legacy characters present in Collection Framework
+
+Enumeration(I)
+Vector(C)
+Stack(C)
+Hashtable(C)
+Properties(C)
+Dictionary(AC)
