@@ -1,0 +1,38 @@
+Serializable and Cloneable
+--------------------------
+Usually we can use collections to hold and transfer objects from one location to another location(container).To provide support for this requirement,every collection class by default implements serializable and cloneable 
+
+Random Access
+------------
+ArrayList and Vector Classes implements random access interface so that any random element we can access with the same speed.Random access interface present in java.util package and it doesnt contain any methods.It is a marker interface where the required ability will be provided by jvm
+
+class Test {
+
+	
+	public static void main(String[] args) {
+		ArrayList a=new ArrayList();
+		LinkedList l=new LinkedList();
+		System.out.println(a instanceof Cloneable);
+		System.out.println(l instanceof Cloneable);
+		System.out.println(a instanceof Serializable);
+		System.out.println(l instanceof Serializable);
+		System.out.println(a instanceof RandomAccess);
+		System.out.println(l instanceof RandomAccess);
+		
+	}
+}
+
+true
+true
+true
+true
+true
+false
+
+
+ArrayList is the best choice if our frequent operation is retrieval operation because ArrayList implements RandomAccess Interface
+
+ArrayList is the worst choice if our frequent operation is insertion or deletion in the middle.(because there will be shift operations)
+
+Differences between ArrayList and Vector
+----------------------------------------

@@ -1,0 +1,125 @@
+Overriding
+==========
+Whatever methods Sparent has by default to child through inherittance.If child class not satisfied with parent classs implementation, then child is allowed to redefine this method based on his requirement and this process is called overriding.The parent class is called overriden ethod and child class method is called overriding method
+
+class parent {
+	public void dothis() {
+		System.out.println("do this in parent");
+	}
+}
+
+class child extends parent {
+	public void dothis() {
+		System.out.println("do this in child");
+	}
+}
+
+class Test {
+
+	public static void main(String[] args) {
+
+		parent p = new parent();
+		p.dothis();//calls parent
+		child c = new child();
+		c.dothis();//calls parent
+		parent pc = new child();
+		pc.dothis();//cals child
+	}
+}
+
+do this in parent
+do this in child
+do this in child
+
+Early and Late binding
+======================
+
+In overriding method resolution always taken care by run time object(new child()) and hence overriding is also considered as run time/dynamic/late binding
+
+Rules for overriding
+--------------------
+1)Method names and argument types must be matched ie method signature must be same
+
+2)Return types must be same but this is rule is applicable until 1.4 v only. From 1.5 v onwards we can take covariant return types. According to this.child class method return type need not be same as parent class reurn type. Its return type can be child of parent return type
+
+class parent {
+	public Object test() {
+		return null;
+	}
+
+}
+
+class child extends parent {
+	public String test() {
+		return "";
+	}
+}
+
+
+Covariant return types applicable for object types but not for primitive types
+
+3)Parent class private methods not available to the child and hence overriding concept not applicable for private methods
+4)Based on our requirement we can define exactly same private in child class.It is valid but not overriding
+
+class parent {
+	private void test() {
+
+	}
+
+}
+
+class child extends parent {
+	private void test() {
+
+	}
+}
+
+5)We cant override parent class final methods in child classes,otherwise we will get compile time error
+
+6)Parent class abstract we should override to do implementation
+
+7)We can override non abstract method as abstract
+
+class P{
+public void m1(){
+
+}
+}
+abstract class c extends P{
+public abstract void m1()
+}
+
+
+The main advantage of this approach is we can stop availability of parent method implementation in the next level child classes
+
+8)In overriding modifiers wont keep any restriction:synchronized,native,strictfp
+
+Restriction=final->non final X
+non final->final X
+abstract->no abstract(vice versa)
+
+
+9)Whild overriding we cant reduce scope of access midifier but we can increase the scope
+
+class parent {
+	public void test() {
+
+	}
+
+}
+
+class child extends parent {
+	 void test() {
+
+	}
+}
+
+private<protected<default<public
+--------------------------------
+
+Cannot reduce the visibility of the inherited method from parent
+
+parent:public	protected	default			private
+
+
+child:public  	public/protected public/protected/default 	concept not applicable

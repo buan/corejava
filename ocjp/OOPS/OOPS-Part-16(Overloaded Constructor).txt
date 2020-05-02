@@ -1,0 +1,56 @@
+Overloaded Constructors
+=======================
+Within a class we can declare multiple constructors and all these constructors having same name but different type of arguments,hence all these constructors are considered as overloaded constructors.Hence overloading concept available for constructors
+
+eg-
+class Test {
+
+	Test() {
+		this(10);
+		System.out.println("no arg cons");
+
+	}
+
+	Test(int i) {
+		this(10.5);
+		System.out.println("int arg cons");
+
+	}
+
+	Test(double d) {
+		System.out.println("float arg cons");
+
+	}
+	
+	public static void main(String[] args) {
+		Test t1=new Test();//float arg cons
+int arg cons
+no arg cons
+		Test t2=new Test(10);//float arg cons
+int arg cons
+		Test t3=new Test(10.5);//float arg cons
+		Test t4=new Test(10L);//float arg cons
+	}
+
+}
+
+For constructors inheritance and overriding concepts are not available but overloading concept is available.
+Every class in java including abstract class can contain constructors but interface cannot contain constructor
+
+//valid
+class Test{
+Test(){
+}
+}
+//valid
+abstract class Test{
+Test(){
+}
+}
+
+//invalid
+interface Test{
+Test(){
+}
+}
+
