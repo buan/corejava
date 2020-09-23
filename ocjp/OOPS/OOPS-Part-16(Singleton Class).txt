@@ -1,0 +1,26 @@
+Singleton Classes
+==================
+For any java class,if we are allwed to create only 1 object such type class is called singleton class
+
+Eg-
+Runtime,BusinessDeligate,ServiceLocator
+
+
+Advantage of Singleton Class
+============================
+If several people have same requirement,then it is not required to have several objects for same requirement.We can reuse the same object for every similar requirement so that performance and memory utilization will be improved
+
+This is the central idea of singleton classes
+
+Eg-
+Runtime r1=Runtime.getRuntime()
+Runtime r2=Runtime.getRuntime()
+.
+.
+.
+Runtime r10000=Runtime.getRuntime()
+
+How to create our own Singleton Classes
+=======================================
+Approach-1
+----------

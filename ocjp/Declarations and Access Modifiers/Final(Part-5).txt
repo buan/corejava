@@ -1,0 +1,23 @@
+Whenever we are writing our own classes, we have to provide some information about out class to the jvm:like whether this class can be accessible or not, whether child class creation is possible or not,etc. We can specify this info by using appropriate modifier
+
+The only applicable modifiers for top level classes are:
+public
+default
+final
+stricfp
+
+But for inner classes,the applicable modifiers are:
+
+same as above + (private,protected,static)
+
+private Class Test{}->not allowed
+
+private class A{}
+static class B{}
+psvm(){sop(1)}
+
+valid code because these classes are inner classes
+
+Access Specifiers vs Access Modifiers
+======================================
+public,private,protected,default are considered as specifiers.Except these are considered as modifiers.This rule is applicable for c++ ,but not java. In java all are modifiers and there is nothing like specifiers
