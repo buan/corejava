@@ -1,0 +1,211 @@
+Abstract
+
+=========
+
+Even though we dont know about implementation,we can still declare a method as abstract modifier ie for abstract methods..declaration is available but not implementation..abstract method declaration should end with semicolon
+
+ 
+
+public abstract void m1();//valid
+
+public abstract void m1(){}//invalid
+
+ 
+
+Child class is responsible to provide implementation for parent class abstract methods
+
+ 
+
+abstract public Class Vehicle{
+
+ 
+
+public int getNoOfWheels();
+
+}
+
+ 
+
+class Bus extend Vehicle{
+
+public int getNoOfWheels(){
+
+return 7;
+
+}
+
+ 
+
+}
+
+ 
+
+class Auto extend Vehicle{
+
+public int getNoOfWheels(){
+
+return 4;
+
+}
+
+ 
+
+}
+
+ 
+
+By declaring abstract methods to the parent class we can provide guidelines which methods compulsory child has to implement
+
+ 
+
+Abstract method never talks about implementation. If any modifier talks about implementation, then it forms an illegal communications. Eg of those modifiers are-
+
+a)abstract final
+
+b)abstract native
+
+c)abstract synchronized
+
+d)abstract static
+
+e)abstract private
+
+f)abstract strictfp
+
+ 
+
+ 
+
+ 
+
+Abstract Class
+
+===============
+
+For any java class, if we are not allowed to create an object because of partial implementation,such type of class we have declare with abstract modifier. that is for abstract classes instantiation is not possible
+
+ 
+
+abstract class Test{
+
+ 
+
+}
+
+ 
+
+Abstract Class Vs Abstract Method
+
+=================================
+
+If a class contains atleast 1 abstract method,then compulsory we should declare class as abstract otherwise we will get compile time error.If a class contains atleast 1 abstract method then implementation is complete and hence it is not recommended to create object. To restrict object creation,compulsory we should declare class Abstract
+
+ 
+
+Even though class doesnt contain any abstract method, we can still declare as abstract if we dont want instantiation. Abstract class can contain 0 methods also.
+
+ 
+
+Eg-1. HttpServlet Class is abstract but it doesnt contain any abstract methods
+
+Eg-2. Every adapter class is recommended to declare as abstract but it doesnt contain any abstract method
+
+ 
+
+ 
+
+class P{
+
+ 
+
+public void m1();//missing method body/declare class abstract
+
+}
+
+ 
+
+class P{
+
+ 
+
+public abstract void m1(){};//cannot have a body
+
+}
+
+ 
+
+class P{
+
+ 
+
+public abstract void m1();//P is not abstract and doesnt override abstract method m1() in P
+
+}
+
+ 
+
+If we are extending abstract class,for each and every abstract method of Parent class,we should provide each and every method for implementation,otherwise declare child as abstract class. In this next level child class is responsible to provide implementation
+
+ 
+
+abstract class P{
+
+ 
+
+public abstract m1();
+
+public abstract m1();
+
+}
+
+ 
+
+class C extends P{
+
+public void m1(){
+
+}
+
+}//CE all methods should be implemented
+
+ 
+
+ 
+
+final vs abstract
+
+==================
+
+abstract methods compulsory we should override in child classes to provide implementation whereas we cant override final methods hence fina abstract combination is illegal combination for methods
+
+ 
+
+For final classes we cant create child class,whereas for abstract class we should create child class to provide implementation hence final abstract combination for classes
+
+ 
+
+abstract class can contain final method whereas final class cant contain abstract method
+
+ 
+
+abstract class Test{
+
+ 
+
+public final void m1(){}
+
+ 
+
+}//valid
+
+ 
+
+final class Test{
+
+public abstract void m1();
+
+}//invalid
+
+ 
+
+Highly recommended to use abstract method as it promotes several oops feature like inheritance and polymorphism

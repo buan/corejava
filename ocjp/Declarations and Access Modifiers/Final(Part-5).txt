@@ -1,23 +1,167 @@
 Whenever we are writing our own classes, we have to provide some information about out class to the jvm:like whether this class can be accessible or not, whether child class creation is possible or not,etc. We can specify this info by using appropriate modifier
 
+ 
+
 The only applicable modifiers for top level classes are:
+
 public
+
 default
+
 final
-stricfp
+
+strictfp
+
+ 
 
 But for inner classes,the applicable modifiers are:
 
+ 
+
 same as above + (private,protected,static)
+
+ 
 
 private Class Test{}->not allowed
 
+ 
+
 private class A{}
+
 static class B{}
+
 psvm(){sop(1)}
+
+ 
 
 valid code because these classes are inner classes
 
+ 
+
 Access Specifiers vs Access Modifiers
+
 ======================================
+
 public,private,protected,default are considered as specifiers.Except these are considered as modifiers.This rule is applicable for c++ ,but not java. In java all are modifiers and there is nothing like specifiers
+
+ 
+
+In java all are considered as modifiers only.There is no word specifiers.
+
+eg-
+
+private class Test{}->modifier private not allowed here.
+
+ 
+
+Public Classes
+
+==============
+
+If a class is declared as public then we can access that class from anywhere.
+
+ 
+
+Default Classes
+
+================
+
+If a class is declared as default then we can access that class only within the current package, ie from outside package we cant access.Hence default level is also known as package level access
+
+ 
+
+Final Modifier
+
+==============
+
+Final is the modifier applicable for classes methods and variables
+
+ 
+
+Final Method
+
+=============
+
+Whatever method parent has by default available to the child through inheritance. If the child not satisfied with parent method implementation then child is allowed to redefine that method based on its requirement.This process is called overriding.
+
+If parent class method is declared as final,we cant override that method in child class.
+
+ 
+
+Eg-
+
+ 
+
+class P {
+
+ 
+
+public final void property(){
+
+S.o.p("Gold")
+
+}
+
+}
+
+ 
+
+class C extends P{
+
+public void property(){
+
+S.o.p("Silver")->CE:cannot override final method
+
+}
+
+}
+
+ 
+
+ 
+
+Final Class
+
+===========
+
+If class is defined as final,we cant extend functionality of that class ie we cant create child of that class.So inheritance is not possible for final classes
+
+ 
+
+eg-
+
+final class P{}
+
+class X extends P{}->CE:cannot inherit from P
+
+ 
+
+Note:Every method present inside final class is always final by default but every variable present inside class need not be final
+
+ 
+
+final class Test {
+
+ 
+
+            static int x = 4;
+
+ 
+
+            public static void main(String[] args) {
+
+                        x = 8;
+
+                        System.out.println(x);
+
+            }
+
+ 
+
+}//8
+
+ 
+
+ 
+
+The main advantage of final keyword is we achieve security and we can provide unique implementation but the main disadvantage of final keyword is we are missing key benefits of OOPS(inheritance:final classes,polymorphism:final methods) hence if there is no specific requirement it is not recommended to use final keyword
